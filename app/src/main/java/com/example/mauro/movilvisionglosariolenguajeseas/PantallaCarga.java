@@ -15,7 +15,7 @@ public class PantallaCarga extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_carga);
-
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -33,7 +33,6 @@ public class PantallaCarga extends AppCompatActivity {
         protected void onPreExecute() {
             progress=0;
             progressBar.setVisibility(View.VISIBLE);
-
         }
 
 
