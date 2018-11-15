@@ -17,17 +17,51 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, vocabularioFragment.OnFragmentInteractionListener,deslizadorABCFragment.OnFragmentInteractionListener{
-
+    ImageButton imbtnPlay;
+    Fragment fragment1 = null;
+    boolean fragmentSelect1 = false;
+    FragmentManager fragmentManager1 = getSupportFragmentManager();
+    ImageButton imbtnAbc,imbtnAyuda, imbtnSalir;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        imbtnPlay = (ImageButton) findViewById(R.id.imbtnInicio);
+        imbtnAbc = (ImageButton) findViewById(R.id.imbtnAbc);
+        imbtnAyuda = (ImageButton) findViewById(R.id.imbtnAyuda);
+        imbtnSalir = (ImageButton) findViewById(R.id.imbtnSalir);
+        imbtnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragment1 = new vocabularioFragment();
+                fragmentSelect1 = true;
+                fragmentManager1.beginTransaction().replace(R.id.content_main, fragment1).commit();
 
+            }
+        });
+
+        imbtnAbc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragment1 = new deslizadorABCFragment();
+                fragmentSelect1 = true;
+                fragmentManager1.beginTransaction().replace(R.id.content_main, fragment1).commit();
+            }
+        });
+
+        imbtnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

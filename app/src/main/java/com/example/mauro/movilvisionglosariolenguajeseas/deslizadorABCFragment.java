@@ -91,11 +91,8 @@ public class deslizadorABCFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 int current=getItem(1);
-                if (current<deslizadorAdapte.deslizar_imagen.length){
-                    vpDeslizar.setCurrentItem(current);
-                }else{
-                    pantallaInicio();
-                }
+                vpDeslizar.setCurrentItem(mCurrentPage + 1 );
+
             }
         });
 
@@ -103,11 +100,8 @@ public class deslizadorABCFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 int current=getItem2(0);
-                if (current>deslizadorAdapte.deslizar_imagen.length){
-                    vpDeslizar.setCurrentItem(current);
-                }else{
-                    pantallaInicio();
-                }
+                vpDeslizar.setCurrentItem(mCurrentPage - 1 );
+
             }
         });
         return vista;
@@ -118,7 +112,7 @@ public class deslizadorABCFragment extends Fragment {
 
     public void anadirIndicadorPnts(int position){
 
-        puntos = new TextView[6];
+        puntos = new TextView[12];
         lyPuntos.removeAllViews();
 
         for(int i = 0; i < puntos.length;i++ ){
@@ -132,7 +126,7 @@ public class deslizadorABCFragment extends Fragment {
         }
 
         if (puntos.length > 0){
-            puntos[position].setTextColor(getResources().getColor(R.color.colorAccent));
+            puntos[position].setTextColor(getResources().getColor(R.color.colorPrimary));
         }
     }
 
