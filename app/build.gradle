@@ -16,6 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -27,5 +31,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     compile 'org.tensorflow:tensorflow-android:+'
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    compile 'org.apache.commons:commons-math3:3.2'
+    implementation 'com.airbnb.android:lottie:1.5.3'
+
 
 }

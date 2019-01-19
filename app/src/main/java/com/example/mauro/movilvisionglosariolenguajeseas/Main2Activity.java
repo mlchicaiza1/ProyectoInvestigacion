@@ -2,8 +2,6 @@ package com.example.mauro.movilvisionglosariolenguajeseas;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
@@ -19,12 +17,21 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.deslizadorABCFragment;
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.fragment_videos;
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.vocabularioFragment;
+import com.example.mauro.movilvisionglosariolenguajeseas.Interfaces.IComunicaFragment;
+import com.example.mauro.movilvisionglosariolenguajeseas.model.vocabularioClass;
 
-public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, vocabularioFragment.OnFragmentInteractionListener,deslizadorABCFragment.OnFragmentInteractionListener{
+
+public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        vocabularioFragment.OnFragmentInteractionListener,deslizadorABCFragment.OnFragmentInteractionListener,
+        fragment_videos.OnFragmentInteractionListener, IComunicaFragment {
     ImageButton imbtnPlay;
     Fragment fragment1 = null;
     boolean fragmentSelect1 = false;
     FragmentManager fragmentManager1 = getSupportFragmentManager();
+    fragment_videos fragmentVideos;
     ImageButton imbtnAbc,imbtnAyuda, imbtnSalir;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +173,22 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void enviarVocabulario(vocabularioClass vocabulario) {
+
+        //fragmentVideos=(fragment_videos) this.getSupportFragmentManager().findFragmentById(R.id.)
+
+        fragmentVideos=new fragment_videos();
+        Bundle bundleEnvio=new Bundle();
+        bundleEnvio.putSerializable("objeto",vocabulario);
+        fragmentVideos.setArguments(bundleEnvio);
+
+        //cargar el fragment en el activity
+        getSupportFragmentManager().beginTransaction().
+                replace(R.id.content_main,fragmentVideos).addToBackStack(null).commit();
 
     }
 }
