@@ -155,6 +155,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
             overlayView1.getResults(bundle.getString("dato"));
         }
 
+
         final Display display = getWindowManager().getDefaultDisplay();
         final int screenOrientation = display.getRotation();
 

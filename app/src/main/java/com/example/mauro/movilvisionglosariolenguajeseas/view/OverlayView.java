@@ -71,10 +71,8 @@ public class OverlayView extends View {
             for (int i=0; i<results.size(); i++){
                 String title=results.get(i).getTitle();
 
-
                 String[] parts = title.split(" ");
                 String part1 = parts[0];
-
                if (parts.length==2){
 
                }else {
