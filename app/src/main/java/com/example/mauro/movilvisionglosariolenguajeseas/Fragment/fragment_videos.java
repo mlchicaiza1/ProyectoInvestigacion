@@ -142,6 +142,7 @@ public class fragment_videos extends Fragment {
                 ((GifDrawable)gifImagen1.getDrawable()).stop();
                 getActivity().startActivity(intent);
             }
+
         });
         return vista;
 
