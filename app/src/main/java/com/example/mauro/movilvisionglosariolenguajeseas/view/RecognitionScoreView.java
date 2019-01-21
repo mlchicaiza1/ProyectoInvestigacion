@@ -53,6 +53,7 @@ public class RecognitionScoreView extends View implements ResultsView {
     postInvalidate();
   }
 
+
   @Override
   public void onDraw(final Canvas canvas) {
     final int x = 10;

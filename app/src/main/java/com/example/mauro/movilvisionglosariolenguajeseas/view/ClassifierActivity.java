@@ -1,5 +1,6 @@
 package com.example.mauro.movilvisionglosariolenguajeseas.view;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -106,7 +107,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     private long lastProcessingTimeMs;
 
     private Bundle bundle;
-    private OverlayView overlayView;
+    private OverlayView overlayView1;
     @Override
     //protected int getLayoutId() {
        // return R.layout.camera_connection_fragment;
@@ -143,6 +144,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                         OUTPUT_NAME);
 
         resultsView = (ResultsView) findViewById(R.id.results);
+        overlayView1=(OverlayView)  findViewById(R.id.debug_overlay);
         previewWidth = size.getWidth();
         previewHeight = size.getHeight();
 
@@ -150,6 +152,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
         if (bundle !=null){
             //overlayView.getResults(bundle.getString("dato"));
             Toast.makeText(this,"Seleccion: "+ bundle.getString("dato"),Toast.LENGTH_SHORT).show();
+            overlayView1.getResults(bundle.getString("dato"));
         }
 
         final Display display = getWindowManager().getDefaultDisplay();
@@ -239,6 +242,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
             ImageUtils.saveBitmap(croppedBitmap);
         }
 
+
         runInBackground(
                 new Runnable() {
                     @Override
@@ -249,7 +253,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
                         cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
                         resultsView.setResults(results);
-                        //overlayView
+                        overlayView1.setResults(results);
                         //boundingView.setResults(results);
                         requestRender();
                         computing = false;

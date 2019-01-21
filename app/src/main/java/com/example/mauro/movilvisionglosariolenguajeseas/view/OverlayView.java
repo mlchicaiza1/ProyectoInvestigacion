@@ -1,5 +1,6 @@
 package com.example.mauro.movilvisionglosariolenguajeseas.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -33,10 +34,11 @@ public class OverlayView extends View {
     private List<Classifier.Recognition> results;
     public String palabra;
     public Drawable imagen;
-
+    public Drawable imagen1;
     public OverlayView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
-        imagen=context.getDrawable(R.drawable.sena_a);
+        imagen=context.getDrawable(R.drawable.like);
+        imagen1=context.getDrawable(R.drawable.error);
     }
 
     /**
@@ -57,22 +59,37 @@ public class OverlayView extends View {
             callback.drawCallback(canvas);
         }
 
+
         int ancho=imagen.getIntrinsicWidth();
         int alto=imagen.getIntrinsicHeight();
-        imagen.setBounds(0,0,ancho,alto);
+
+
+        imagen.setBounds(200,200,ancho+200,alto+200);
+        imagen1.setBounds(200,200,ancho+200,alto+200);
 
         if (results!=null){
             for (int i=0; i<results.size(); i++){
                 String title=results.get(i).getTitle();
 
-                if (title.equals(palabra)){
-                    imagen=getContext().getDrawable(R.drawable.sena_a);
 
-                }else {
-                    imagen=getContext().getDrawable(R.drawable.sena_j);
-                }
+                String[] parts = title.split(" ");
+                String part1 = parts[0];
+
+               if (parts.length==2){
+
+               }else {
+                   if (part1.equalsIgnoreCase(palabra)){
+                       imagen.draw(canvas);
+                   }else{
+                       imagen1.draw(canvas);
+                   }
+               }
+
+
             }
         }
+
+
 
     }
 
@@ -80,7 +97,7 @@ public class OverlayView extends View {
         this.results=results;
         postInvalidate();
     }
-    public void setResultsPalab(String palabra){
+    public void getResults(String palabra){
         this.palabra=palabra;
         postInvalidate();
 
