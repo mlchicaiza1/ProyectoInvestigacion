@@ -27,6 +27,7 @@ import com.example.mauro.movilvisionglosariolenguajeseas.model.vocabularioClass;
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
         vocabularioFragment.OnFragmentInteractionListener,deslizadorABCFragment.OnFragmentInteractionListener,
         fragment_videos.OnFragmentInteractionListener, IComunicaFragment {
+
     ImageButton imbtnPlay;
     Fragment fragment1 = null;
     boolean fragmentSelect1 = false;
