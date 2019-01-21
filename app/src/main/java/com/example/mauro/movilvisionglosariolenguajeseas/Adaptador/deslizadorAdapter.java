@@ -35,11 +35,17 @@ public class deslizadorAdapter extends PagerAdapter {
             R.drawable.sena_i,
             R.drawable.sena_j,
             R.drawable.sena_k,
-            R.drawable.sena_l
+            R.drawable.sena_l,
+            R.drawable.sena_ll,
+            R.drawable.sena_m,
+            R.drawable.sena_n,
+            R.drawable.sena_o,
+            R.drawable.sena_p,
+            R.drawable.sena_q,
     };
 
     public String[] deslizar_nombres = {
-            "A","B","C","D","E","F","G","H","I","J","K","L"
+            "A","B","C","D","E","F","G","H","I","J","K","L","LL","M","N","O","P","Q"
     };
     @Override
     public int getCount() {

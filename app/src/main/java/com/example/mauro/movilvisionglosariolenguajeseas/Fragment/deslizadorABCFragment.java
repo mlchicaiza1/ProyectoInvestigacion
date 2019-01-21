@@ -115,7 +115,7 @@ public class deslizadorABCFragment extends Fragment {
 
     public void anadirIndicadorPnts(int position){
 
-        puntos = new TextView[12];
+        puntos = new TextView[36];
         lyPuntos.removeAllViews();
 
         for(int i = 0; i < puntos.length;i++ ){

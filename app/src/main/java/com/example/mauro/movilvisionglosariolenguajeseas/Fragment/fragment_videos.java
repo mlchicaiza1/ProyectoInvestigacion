@@ -3,8 +3,10 @@ package com.example.mauro.movilvisionglosariolenguajeseas.Fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -19,6 +21,13 @@ import com.example.mauro.movilvisionglosariolenguajeseas.Main2Activity;
 import com.example.mauro.movilvisionglosariolenguajeseas.R;
 import com.example.mauro.movilvisionglosariolenguajeseas.model.vocabularioClass;
 import com.example.mauro.movilvisionglosariolenguajeseas.view.ClassifierActivity;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import pl.droidsonroids.gif.GifAnimationMetaData;
+import pl.droidsonroids.gif.GifDrawable;
+import pl.droidsonroids.gif.GifImageView;
 
 
 /**
@@ -44,6 +53,7 @@ public class fragment_videos extends Fragment {
     ImageButton btnPractica,btnAyuda,btnInicio,btnVolver;
     VideoView vdVideoPractica;
     TextView txtpalabraSen;
+    GifImageView gifImagen1;
 
 
     public fragment_videos() {
@@ -82,12 +92,14 @@ public class fragment_videos extends Fragment {
         boolean fragmentSelect1 = false;
         FragmentManager fragmentManager1 = getFragmentManager();
 
-        vdVideoPractica = (VideoView)vista.findViewById(R.id.vdVideo);
+        //vdVideoPractica = (VideoView)vista.findViewById(R.id.vdVideo);
         btnAyuda = (ImageButton) vista.findViewById(R.id.imbtnAyuda);
         btnPractica = (ImageButton) vista.findViewById(R.id.imbtnPracticar);
         btnInicio = (ImageButton)vista.findViewById(R.id.imbtnInicio);
         btnVolver=(ImageButton) vista.findViewById(R.id.imbtnVolver);
         txtpalabraSen = (TextView)vista.findViewById(R.id.txtPalabra);
+        gifImagen1 = (GifImageView)vista.findViewById(R.id.gifImagen);
+        gifImagen1.setImageResource(R.drawable.color);
         Bundle objetoVocabulario=getArguments();
         vocabularioClass vocabulario=null;
         if (objetoVocabulario !=null){
@@ -95,12 +107,12 @@ public class fragment_videos extends Fragment {
             txtpalabraSen.setText(vocabulario.getPalabra());
         }
 
-        Uri uri = Uri.parse("http://techslides.com/demos/sample-videos/small.mp4");
-        vdVideoPractica.setMediaController(new MediaController((Activity)getContext()));
-        vdVideoPractica.setVideoURI(uri);
+
+        /*vdVideoPractica.setMediaController(new MediaController((Activity)getContext()));
+        vdVideoPractica.setVideoPath("@Drawable/delante.gif");
         vdVideoPractica.requestFocus();
         vdVideoPractica.start();
-
+*/
 
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +139,7 @@ public class fragment_videos extends Fragment {
                 Bundle bundle =new Bundle();
                 bundle.putString("dato",txtpalabraSen.getText().toString());
                 intent.putExtras(bundle);
+                ((GifDrawable)gifImagen1.getDrawable()).stop();
                 getActivity().startActivity(intent);
             }
         });

@@ -12,15 +12,16 @@ public class vocabularioClass implements Serializable {
     String letra;
     int imagen1;
     String palabra;
-
+    String video1;
     public vocabularioClass() {
     }
 
-    public vocabularioClass(int fondoletra, String letra, int imagen1, String palabra) {
+    public vocabularioClass(int fondoletra, String letra, int imagen1, String palabra, String video) {
         this.fondoletra = fondoletra;
         this.letra = letra;
         this.imagen1 = imagen1;
         this.palabra = palabra;
+        this.video1 = video;
     }
 
     public int getFondoletra() {
@@ -50,6 +51,10 @@ public class vocabularioClass implements Serializable {
     public String getPalabra() {
         return palabra;
     }
+
+    public String getVideo1() { return video1; }
+
+    public void setVideo1(String video1) {this.video1 = video1;}
 
     public void setPalabra(String palabra) {
         this.palabra = palabra;
