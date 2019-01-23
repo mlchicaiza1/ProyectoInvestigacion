@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -28,6 +30,7 @@ import java.io.InputStream;
 import pl.droidsonroids.gif.GifAnimationMetaData;
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
+
 
 
 /**
@@ -54,7 +57,7 @@ public class fragment_videos extends Fragment {
     VideoView vdVideoPractica;
     TextView txtpalabraSen;
     GifImageView gifImagen1;
-
+    ImageView imgPalabraSena,imgSena;
 
     public fragment_videos() {
         // Required empty public constructor
@@ -99,12 +102,23 @@ public class fragment_videos extends Fragment {
         btnVolver=(ImageButton) vista.findViewById(R.id.imbtnVolver);
         txtpalabraSen = (TextView)vista.findViewById(R.id.txtPalabra);
         gifImagen1 = (GifImageView)vista.findViewById(R.id.gifImagen);
-        gifImagen1.setImageResource(R.drawable.color);
+        imgPalabraSena = (ImageView)vista.findViewById(R.id.imgPalabrasena);
+        imgSena = (ImageView)vista.findViewById(R.id.imgSena);
+
         Bundle objetoVocabulario=getArguments();
         vocabularioClass vocabulario=null;
         if (objetoVocabulario !=null){
             vocabulario=(vocabularioClass) objetoVocabulario.getSerializable("objeto");
             txtpalabraSen.setText(vocabulario.getPalabra());
+            int imagenPalabra = getResources().getIdentifier(String.valueOf(vocabulario.getFondoletra()), "drawable",getContext().getPackageName() );
+            imgPalabraSena.setImageResource(imagenPalabra);
+            //Imagen de la seña
+            int imagenSena = getResources().getIdentifier(vocabulario.getImaSena1(), "drawable",getContext().getPackageName() );
+            imgSena.setImageResource(imagenSena);
+            //gif de la seña
+            int imageResource = getResources().getIdentifier(String.valueOf(vocabulario.getVideo1()), "drawable",getContext().getPackageName() );
+            gifImagen1.setImageResource(imageResource);
+
         }
 
 

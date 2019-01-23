@@ -157,7 +157,10 @@ public class vocabularioFragment extends Fragment {
             int resId1 = getResources().getIdentifier(uri1, "drawable", getContext().getPackageName());
             item1.setImagen1(resId1);
 
-                        //item1.setImagen1(String.valueOf(R.drawable.familia1));
+            item1.setImaSena1(cursor.getString(7));
+            item1.setVideo1(cursor.getString(8));
+
+            //item1.setImagen1(String.valueOf(R.drawable.familia1));
             itemsVocabulario.add(item1);
         }
 
