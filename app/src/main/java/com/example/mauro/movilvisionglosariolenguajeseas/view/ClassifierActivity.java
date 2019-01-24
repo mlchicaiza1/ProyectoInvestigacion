@@ -1,6 +1,7 @@
 package com.example.mauro.movilvisionglosariolenguajeseas.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -156,6 +157,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
         }
 
 
+
         final Display display = getWindowManager().getDefaultDisplay();
         final int screenOrientation = display.getRotation();
 
@@ -186,6 +188,17 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                         renderDebug(canvas);
                     }
                 });
+
+    }
+
+    public void cerrarActivity(boolean ft){
+
+        if(ft==true){
+            Intent intent = new Intent(this, ClassifierActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
     }
 
     @Override
@@ -243,7 +256,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
             ImageUtils.saveBitmap(croppedBitmap);
         }
 
-
         runInBackground(
                 new Runnable() {
                     @Override
@@ -255,7 +267,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                         cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
                         resultsView.setResults(results);
                         overlayView1.setResults(results);
-                        //boundingView.setResults(results);
                         requestRender();
                         computing = false;
                     }

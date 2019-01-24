@@ -64,6 +64,7 @@ public class OverlayView extends View {
         int alto=imagen.getIntrinsicHeight();
 
 
+        int cont=0;
         imagen.setBounds(200,200,ancho+200,alto+200);
         imagen1.setBounds(200,200,ancho+200,alto+200);
 
@@ -73,16 +74,26 @@ public class OverlayView extends View {
 
                 String[] parts = title.split(" ");
                 String part1 = parts[0];
-               if (parts.length==2){
 
-               }else {
-                   if (part1.equalsIgnoreCase(palabra)){
+                if (part1.equalsIgnoreCase(palabra) && parts[1].equalsIgnoreCase("final")){
+                        imagen.draw(canvas);
+                }else {
+                        imagen1.draw(canvas);
+                        cont++;
+                        if (cont==5){
+
+                        }
+                }
+
+                if (part1.equalsIgnoreCase(palabra)){
                        imagen.draw(canvas);
-                   }else{
+                }else{
                        imagen1.draw(canvas);
-                   }
-               }
+                       cont++;
+                       if (cont==5){
 
+                       }
+                }
 
             }
         }
