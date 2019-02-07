@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.mauro.movilvisionglosariolenguajeseas.view.PantallaCarga"
-    android:background="@drawable/carga">
+    android:background="@drawable/fondogallegos">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -1,10 +1,9 @@
+abajo
 arriba
 color
-debajo
 delante final
 delante inicial
-dia final
-dia inicial
+dia
 diferente final
 diferente inicial
 encima
