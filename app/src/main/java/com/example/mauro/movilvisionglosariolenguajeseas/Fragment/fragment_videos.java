@@ -116,7 +116,7 @@ public class fragment_videos extends Fragment {
             int imagenSena = getResources().getIdentifier(vocabulario.getImaSena1(), "drawable",getContext().getPackageName() );
             imgSena.setImageResource(imagenSena);
             //gif de la seña
-            int imageResource = getResources().getIdentifier(String.valueOf(vocabulario.getVideo1()), "drawable",getContext().getPackageName() );
+            int imageResource = getResources().getIdentifier(vocabulario.getVideo1(), "drawable",getContext().getPackageName() );
             gifImagen1.setImageResource(imageResource);
 
         }
