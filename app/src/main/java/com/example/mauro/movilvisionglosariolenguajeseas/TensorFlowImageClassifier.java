@@ -194,9 +194,6 @@ public class TensorFlowImageClassifier implements Classifier {
     for (int i = 0; i < recognitionsSize; ++i) {
       recognitions.add(pq.poll());
     }
-
-
-
     Trace.endSection(); // "recognizeImage"
     return recognitions;
   }

@@ -1,5 +1,6 @@
 package com.example.mauro.movilvisionglosariolenguajeseas;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,17 +23,19 @@ import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.fragment_video
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.vocabularioFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Interfaces.IComunicaFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.model.vocabularioClass;
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.resultadoPracticaFragment;
 
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
         vocabularioFragment.OnFragmentInteractionListener,deslizadorABCFragment.OnFragmentInteractionListener,
-        fragment_videos.OnFragmentInteractionListener, IComunicaFragment {
+        fragment_videos.OnFragmentInteractionListener,resultadoPracticaFragment.OnFragmentInteractionListener, IComunicaFragment {
 
     ImageButton imbtnPlay;
     Fragment fragment1 = null;
     boolean fragmentSelect1 = false;
     FragmentManager fragmentManager1 = getSupportFragmentManager();
     fragment_videos fragmentVideos;
+    resultadoPracticaFragment resultadoFragment;
     ImageButton imbtnAbc,imbtnAyuda, imbtnSalir;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,25 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
             }
         });
+
+        Bundle bundle = getIntent().getExtras();
+        // Obtienes el texto
+        if (bundle!=null){
+            String texto = bundle.getString("textFromActivityA");
+
+            // Creamos un nuevo Bundle
+            Bundle args = new Bundle();
+            // Colocamos el String
+            args.putString("textFromActivityB", texto);
+
+            resultadoFragment=new resultadoPracticaFragment();
+            resultadoFragment.setArguments(args);
+            //cargar el fragment en el activity
+            getSupportFragmentManager().beginTransaction().
+                    replace(R.id.content_main,resultadoFragment).addToBackStack(null).commit();
+        }
+
+
 
         imbtnAbc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,5 +213,20 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         getSupportFragmentManager().beginTransaction().
                 replace(R.id.content_main,fragmentVideos).addToBackStack(null).commit();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Compruebas si el código es el que tú le has enviado (pueden recibirse otros)
+        if (requestCode == 1) {
+
+                // Abres la página que quieras
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.content_main,fragmentVideos).addToBackStack(null).commit();
+                //vocabularioFragment.setCurrentItem(1); // 1 para ir a la segunda página ya que empiezan en 0
+
+
+        }
     }
 }

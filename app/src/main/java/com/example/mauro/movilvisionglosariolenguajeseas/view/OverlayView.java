@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.vocabularioFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.R;
 import com.example.mauro.movilvisionglosariolenguajeseas.model.BoxPosition;
 import com.example.mauro.movilvisionglosariolenguajeseas.model.Recognition;
@@ -35,6 +37,9 @@ public class OverlayView extends View {
     public String palabra;
     public Drawable imagen;
     public Drawable imagen1;
+    private long lastProcessingTimeMs;
+
+    ClassifierActivity classifierActivity;
     public OverlayView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
         imagen=context.getDrawable(R.drawable.like);
@@ -64,39 +69,38 @@ public class OverlayView extends View {
         int alto=imagen.getIntrinsicHeight();
 
 
-        int cont=0;
-        imagen.setBounds(200,200,ancho+200,alto+200);
-        imagen1.setBounds(200,200,ancho+200,alto+200);
+        int cont=1;
+        imagen.setBounds(350,350,ancho+350,alto+350);
+        imagen1.setBounds(350,350,ancho+350,alto+350);
 
         if (results!=null){
+            long startTime = SystemClock.uptimeMillis();
             for (int i=0; i<results.size(); i++){
                 String title=results.get(i).getTitle();
 
                 String[] parts = title.split(" ");
                 String part1 = parts[0];
 
-                if (part1.equalsIgnoreCase(palabra) && parts[1].equalsIgnoreCase("final")){
-                        imagen.draw(canvas);
+                if (part1.equalsIgnoreCase(palabra)){
+
+                        for (int j=0; j<18090; j++){
+                           // classifierActivity.cerrarActivity(true);
+                            imagen.draw(canvas);
+                        }
+
                 }else {
                         imagen1.draw(canvas);
-                        cont++;
-                        if (cont==5){
 
-                        }
+
                 }
 
-                if (part1.equalsIgnoreCase(palabra)){
-                       imagen.draw(canvas);
-                }else{
-                       imagen1.draw(canvas);
-                       cont++;
-                       if (cont==5){
 
-                       }
-                }
 
             }
+
+            lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
         }
+
 
 
 

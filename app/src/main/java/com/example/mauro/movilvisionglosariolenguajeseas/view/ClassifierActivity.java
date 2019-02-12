@@ -1,6 +1,7 @@
 package com.example.mauro.movilvisionglosariolenguajeseas.view;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -11,19 +12,25 @@ import android.graphics.Typeface;
 import android.media.Image;
 import android.media.ImageReader;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.os.Trace;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.util.Size;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.vocabularioFragment;
+import com.example.mauro.movilvisionglosariolenguajeseas.Main2Activity;
 import com.example.mauro.movilvisionglosariolenguajeseas.TensorFlowImageClassifier;
 import com.example.mauro.movilvisionglosariolenguajeseas.view.OverlayView.DrawCallback;
 import com.example.mauro.movilvisionglosariolenguajeseas.model.Recognition;
@@ -40,8 +47,10 @@ import java.util.Vector;
 
 import com.example.mauro.movilvisionglosariolenguajeseas.env.Logger;
 
+
 public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener {
     private static final Logger LOGGER = new Logger();
+
 
     // These are the settings for the original v1 Inception model. If you want to
     // use a model that's been produced from the TensorFlow for Poets codelab,
@@ -109,6 +118,12 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
     private Bundle bundle;
     private OverlayView overlayView1;
+    private String palabra;
+    private Intent intent;
+
+    private Chronometer chronometer;
+    private TextView txtTempor;
+    private int count=25;
     @Override
     //protected int getLayoutId() {
        // return R.layout.camera_connection_fragment;
@@ -149,13 +164,19 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
         previewWidth = size.getWidth();
         previewHeight = size.getHeight();
 
+
         bundle=this.getIntent().getExtras();
         if (bundle !=null){
             //overlayView.getResults(bundle.getString("dato"));
             Toast.makeText(this,"Seleccion: "+ bundle.getString("dato"),Toast.LENGTH_SHORT).show();
             overlayView1.getResults(bundle.getString("dato"));
-        }
+            palabra=bundle.getString("dato");
 
+        }
+        intent= new Intent (ClassifierActivity.this, Main2Activity.class);
+        chronometer=(Chronometer) findViewById(R.id.txtCrono);
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        txtTempor=(TextView)findViewById(R.id.txtTemp);
 
 
         final Display display = getWindowManager().getDefaultDisplay();
@@ -191,15 +212,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
     }
 
-    public void cerrarActivity(boolean ft){
 
-        if(ft==true){
-            Intent intent = new Intent(this, ClassifierActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
-    }
 
     @Override
     public void onImageAvailable(final ImageReader reader) {
@@ -263,17 +276,86 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                         final long startTime = SystemClock.uptimeMillis();
                         final List<Classifier.Recognition> results = classifier.recognizeImage(croppedBitmap);
                         lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
-
                         cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
                         resultsView.setResults(results);
                         overlayView1.setResults(results);
+
+
+
+                        chronometer.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                chronometer.start();
+
+                                new CountDownTimer(20_000, 1_000) {
+                                    @Override
+                                    public void onTick(long l) {
+                                        txtTempor.setText(String.valueOf(count));
+
+                                        if (count<0){
+                                            count=0;
+                                        }
+                                        if (count>0){
+                                            count--;
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onFinish() {
+
+                                    }
+                                }.start();
+
+                            }
+                        });
+
+
+                        String valor= (String) txtTempor.getText();
+                        Boolean respuesta;
+                        if (results!=null){
+
+                            for (int i=0; i<results.size(); i++){
+                                String title=results.get(i).getTitle();
+
+                                String[] parts = title.split(" ");
+                                String part1 = parts[0];
+
+                                if (Integer.parseInt(valor)< 1){
+
+                                    for (int j=0; j<130; j++){
+                                        bundle.putString("textFromActivityA", palabra+"_"+"false" );
+                                        intent.putExtras(bundle);
+                                        //finish();
+                                        startActivity(intent);
+                                    }
+                                }
+                                if (part1.equalsIgnoreCase(palabra)){
+                                    bundle.putString("textFromActivityA", palabra +"_"+"true" );
+
+                                    intent.putExtras(bundle);
+                                    //finish();
+                                    startActivity(intent);
+                                }
+
+                            }
+
+                        }
+
+
+
+
+
                         requestRender();
+
                         computing = false;
                     }
                 });
 
         Trace.endSection();
     }
+
+
 
     @Override
     public void onSetDebug(boolean debug) {
@@ -312,4 +394,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
             borderedText.drawLines(canvas, 10, canvas.getHeight() - 10, lines);
         }
     }
+
+
 }
