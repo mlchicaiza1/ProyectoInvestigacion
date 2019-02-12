@@ -3,7 +3,10 @@ package com.example.mauro.movilvisionglosariolenguajeseas.view;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.camera2.CameraAccessException;
 import android.media.Image;
 import android.media.ImageReader;
 import android.os.Build;
@@ -15,15 +18,19 @@ import android.util.Log;
 import android.util.Size;
 import android.view.KeyEvent;
 import android.view.WindowManager;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.vocabularioFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.R;
 import com.example.mauro.movilvisionglosariolenguajeseas.model.Recognition;
 import java.nio.ByteBuffer;
 import java.util.List;
 import com.example.mauro.movilvisionglosariolenguajeseas.env.Logger;
+
+import static android.app.PendingIntent.getActivity;
 
 public abstract class CameraActivity extends Activity implements ImageReader.OnImageAvailableListener {
     private static final Logger LOGGER = new Logger();
@@ -51,7 +58,12 @@ public abstract class CameraActivity extends Activity implements ImageReader.OnI
         } else {
             requestPermission();
         }
+
+
+
+
     }
+
 
     @Override
     public synchronized void onStart() {
@@ -179,9 +191,14 @@ public abstract class CameraActivity extends Activity implements ImageReader.OnI
 
     public void requestRender() {
         final OverlayView overlay = (OverlayView) findViewById(R.id.debug_overlay);
+        final Chronometer chronometer=(Chronometer) findViewById(R.id.txtCrono);
         if (overlay != null) {
             overlay.postInvalidate();
         }
+        if (chronometer != null){
+            chronometer.postInvalidate();
+        }
+
     }
 
     public void addCallback(final OverlayView.DrawCallback callback) {
@@ -203,6 +220,8 @@ public abstract class CameraActivity extends Activity implements ImageReader.OnI
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
 
     protected abstract void onPreviewSizeChosen(final Size size, final int rotation);
     protected abstract int getLayoutId();

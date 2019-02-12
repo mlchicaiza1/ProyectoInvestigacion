@@ -3,6 +3,8 @@ package com.example.mauro.movilvisionglosariolenguajeseas.Fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import android.widget.VideoView;
 
 import com.example.mauro.movilvisionglosariolenguajeseas.Main2Activity;
 import com.example.mauro.movilvisionglosariolenguajeseas.R;
+import com.example.mauro.movilvisionglosariolenguajeseas.model.AdminSQLiteOpenHelper;
 import com.example.mauro.movilvisionglosariolenguajeseas.model.vocabularioClass;
 import com.example.mauro.movilvisionglosariolenguajeseas.view.ClassifierActivity;
 
@@ -58,6 +61,7 @@ public class fragment_videos extends Fragment {
     TextView txtpalabraSen;
     GifImageView gifImagen1;
     ImageView imgPalabraSena,imgSena;
+    AdminSQLiteOpenHelper conn;
 
     public fragment_videos() {
         // Required empty public constructor
@@ -83,13 +87,13 @@ public class fragment_videos extends Fragment {
         }
     }
 
+    String texto=null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
 
         View vista =inflater.inflate(R.layout.fragment_fragment_videos, container, false);
-
 
         final android.support.v4.app.Fragment fragment1 = null;
         boolean fragmentSelect1 = false;
@@ -107,7 +111,8 @@ public class fragment_videos extends Fragment {
 
         Bundle objetoVocabulario=getArguments();
         vocabularioClass vocabulario=null;
-        if (objetoVocabulario !=null){
+        texto = getArguments().getString("palabra");
+        if (objetoVocabulario !=null && texto==null){
             vocabulario=(vocabularioClass) objetoVocabulario.getSerializable("objeto");
             txtpalabraSen.setText(vocabulario.getPalabra());
             int imagenPalabra = getResources().getIdentifier(String.valueOf(vocabulario.getFondoletra()), "drawable",getContext().getPackageName() );
@@ -119,6 +124,20 @@ public class fragment_videos extends Fragment {
             int imageResource = getResources().getIdentifier(vocabulario.getVideo1(), "drawable",getContext().getPackageName() );
             gifImagen1.setImageResource(imageResource);
 
+        }
+
+
+        if (texto != null){
+            txtpalabraSen.setText(texto);
+            //String uri1 = "@drawable/"+texto+"fondo";
+            int resId1 = getResources().getIdentifier(String.valueOf("@drawable/"+texto.toLowerCase()+"fondo"), "drawable", getContext().getPackageName());
+            imgPalabraSena.setImageResource(resId1);
+
+            int resId2 = getResources().getIdentifier(String.valueOf("@drawable/"+"fondo"+texto.toLowerCase()), "drawable", getContext().getPackageName());
+            imgSena.setImageResource(resId2);
+
+            int resId3 = getResources().getIdentifier(String.valueOf("@drawable/"+texto.toLowerCase()), "drawable", getContext().getPackageName());
+            gifImagen1.setImageResource(resId3);
         }
 
 
@@ -159,6 +178,34 @@ public class fragment_videos extends Fragment {
 
         });
         return vista;
+
+    }
+
+    private void consultarListaVocabulario() {
+        SQLiteDatabase db=conn.getReadableDatabase();
+        vocabularioClass item1=null;
+
+        Cursor cursor=db.rawQuery("SELECT * FROM Palabras ORDER BY palabra ASC" ,null);
+        while (cursor.moveToNext()){
+            item1=new vocabularioClass();
+
+
+            item1.setLetra(cursor.getString(1));
+            item1.setPalabra(cursor.getString(2));
+
+            String uri = "@drawable/"+cursor.getString(3);
+            int resId = getResources().getIdentifier(uri, "drawable", getContext().getPackageName());
+            item1.setFondoletra(resId);
+
+            String uri1 = "@drawable/"+cursor.getString(4);
+            int resId1 = getResources().getIdentifier(uri1, "drawable", getContext().getPackageName());
+            item1.setImagen1(resId1);
+
+            item1.setImaSena1(cursor.getString(7));
+            item1.setVideo1(cursor.getString(8));
+
+            //item1.setImagen1(String.valueOf(R.drawable.familia1));
+        }
 
     }
 

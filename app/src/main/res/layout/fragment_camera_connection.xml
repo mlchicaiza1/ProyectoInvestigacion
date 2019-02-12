@@ -21,8 +21,32 @@
         android:id="@+id/debug_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
+    <Chronometer
+        android:id="@+id/txtCrono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/results"
+        android:layout_marginEnd="43dp"
+        android:layout_marginTop="15dp"
+        android:textSize="@android:dimen/app_icon_size"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/txtTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtCrono"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_toStartOf="@+id/txtCrono"
+        android:text="10"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
