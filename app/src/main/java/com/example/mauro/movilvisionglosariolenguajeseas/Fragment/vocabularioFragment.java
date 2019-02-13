@@ -114,6 +114,17 @@ public class vocabularioFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int i, int i1, int i2) {
                     vocabularioAdapter.getFilter().filter(s.toString());
+                vocabularioAdapter.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getContext(),"Seleccion: "+
+                                itemsVocabulario.get(recyclerView.
+                                        getChildAdapterPosition(view)).getPalabra(),Toast.LENGTH_SHORT).show();
+
+                        interfaceComunicaFragment.enviarVocabulario(itemsVocabulario.get(recyclerView.getChildAdapterPosition(view)));
+                        onDestroy();
+                    }
+                });
             }
 
             @Override

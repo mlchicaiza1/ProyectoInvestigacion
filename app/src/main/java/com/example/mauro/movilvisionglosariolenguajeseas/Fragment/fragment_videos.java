@@ -131,10 +131,10 @@ public class fragment_videos extends Fragment {
             int resId1 = getResources().getIdentifier(String.valueOf("@drawable/"+texto.toLowerCase()+"fondo"), "drawable", getContext().getPackageName());
             imgPalabraSena.setImageResource(resId1);
 
-            int resId2 = getResources().getIdentifier(String.valueOf("@drawable/"+"fondo"+texto.toLowerCase()), "drawable", getContext().getPackageName());
+            int resId2 = getResources().getIdentifier(String.valueOf("@drawable/sena"+texto.toLowerCase()), "drawable", getContext().getPackageName());
             imgSena.setImageResource(resId2);
 
-            int resId3 = getResources().getIdentifier(String.valueOf("@drawable/"+texto.toLowerCase()), "drawable", getContext().getPackageName());
+            int resId3 = getResources().getIdentifier(String.valueOf("@drawable/gif"+texto.toLowerCase()), "drawable", getContext().getPackageName());
             gifImagen1.setImageResource(resId3);
         }
 
