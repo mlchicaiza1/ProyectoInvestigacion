@@ -151,6 +151,7 @@ public class fragment_videos extends Fragment {
                 Intent intent= new Intent(view.getContext(),Main2Activity.class);
                 startActivity(intent);
                 onDestroy();
+
             }
         });
 
