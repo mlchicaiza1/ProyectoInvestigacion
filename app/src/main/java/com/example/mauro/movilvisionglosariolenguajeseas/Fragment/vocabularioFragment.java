@@ -131,6 +131,7 @@ public class vocabularioFragment extends Fragment {
                                 getChildAdapterPosition(view)).getPalabra(),Toast.LENGTH_SHORT).show();
 
                 interfaceComunicaFragment.enviarVocabulario(itemsVocabulario.get(recyclerView.getChildAdapterPosition(view)));
+                onDestroy();
             }
         });
         return vista;
