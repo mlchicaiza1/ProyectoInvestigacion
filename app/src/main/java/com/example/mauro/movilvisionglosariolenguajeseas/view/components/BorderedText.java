@@ -35,8 +35,8 @@ public class BorderedText {
      * Create a bordered text object with the specified interior and exterior colors, text size and
      * alignment.
      *
-     * @param interiorColor the interior text color
-     * @param exteriorColor the exterior text color
+     * @param interiorColor the interior text gifcolor
+     * @param exteriorColor the exterior text gifcolor
      * @param textSize      text size in pixels
      */
     public BorderedText(final int interiorColor, final int exteriorColor, final float textSize) {

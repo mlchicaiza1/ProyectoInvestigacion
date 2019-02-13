@@ -99,7 +99,6 @@ public class fragment_videos extends Fragment {
         boolean fragmentSelect1 = false;
         FragmentManager fragmentManager1 = getFragmentManager();
 
-        //vdVideoPractica = (VideoView)vista.findViewById(R.id.vdVideo);
         btnAyuda = (ImageButton) vista.findViewById(R.id.imbtnAyuda);
         btnPractica = (ImageButton) vista.findViewById(R.id.imbtnPracticar);
         btnInicio = (ImageButton)vista.findViewById(R.id.imbtnInicio);
@@ -121,9 +120,8 @@ public class fragment_videos extends Fragment {
             int imagenSena = getResources().getIdentifier(vocabulario.getImaSena1(), "drawable",getContext().getPackageName() );
             imgSena.setImageResource(imagenSena);
             //gif de la seña
-            int imageResource = getResources().getIdentifier(String.valueOf(vocabulario.getVideo1()), "drawable",getContext().getPackageName() );
+            int imageResource = getResources().getIdentifier(vocabulario.getVideo1(), "drawable",getContext().getPackageName() );
             gifImagen1.setImageResource(imageResource);
-
         }
 
 
@@ -142,7 +140,7 @@ public class fragment_videos extends Fragment {
 
 
         /*vdVideoPractica.setMediaController(new MediaController((Activity)getContext()));
-        vdVideoPractica.setVideoPath("@Drawable/delante.gif");
+        vdVideoPractica.setVideoPath("@Drawable/gifdelante.gifgif");
         vdVideoPractica.requestFocus();
         vdVideoPractica.start();
 */
@@ -152,6 +150,7 @@ public class fragment_videos extends Fragment {
             public void onClick(View view) {
                 Intent intent= new Intent(view.getContext(),Main2Activity.class);
                 startActivity(intent);
+                onDestroy();
             }
         });
 
@@ -172,7 +171,8 @@ public class fragment_videos extends Fragment {
                 Bundle bundle =new Bundle();
                 bundle.putString("dato",txtpalabraSen.getText().toString());
                 intent.putExtras(bundle);
-                ((GifDrawable)gifImagen1.getDrawable()).stop();
+                onDestroy();
+                //((GifDrawable)gifImagen1.getDrawable()).stop();
                 getActivity().startActivity(intent);
             }
 

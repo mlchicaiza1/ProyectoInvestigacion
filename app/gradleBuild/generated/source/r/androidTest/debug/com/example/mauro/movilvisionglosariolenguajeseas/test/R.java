@@ -142,7 +142,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -398,7 +398,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -408,13 +408,13 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int backgroundStacked=0x7f020033;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -539,7 +539,7 @@ public final class R {
      */
     public static final int buttonStyleSmall=0x7f020042;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -605,43 +605,43 @@ public final class R {
      */
     public static final int collapseIcon=0x7f02004b;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int color=0x7f02004c;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int colorAccent=0x7f02004d;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int colorBackgroundFloating=0x7f02004e;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int colorButtonNormal=0x7f02004f;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int colorControlActivated=0x7f020050;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int colorControlHighlight=0x7f020051;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -651,25 +651,25 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int colorError=0x7f020053;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int colorPrimary=0x7f020054;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
     public static final int colorPrimaryDark=0x7f020055;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -875,7 +875,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -1038,7 +1038,7 @@ public final class R {
      */
     public static final int icon=0x7f020086;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -2039,7 +2039,7 @@ public final class R {
      */
     public static final int subtitleTextAppearance=0x7f0200fe;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -2158,7 +2158,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -2168,7 +2168,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -2197,7 +2197,7 @@ public final class R {
      */
     public static final int thumbTextPadding=0x7f020113;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -2226,7 +2226,7 @@ public final class R {
      */
     public static final int tickMark=0x7f020116;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -2248,7 +2248,7 @@ public final class R {
      */
     public static final int tickMarkTintMode=0x7f020118;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -2329,7 +2329,7 @@ public final class R {
      */
     public static final int titleTextAppearance=0x7f020122;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -2360,7 +2360,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -2385,7 +2385,7 @@ public final class R {
      */
     public static final int track=0x7f02012a;
     /**
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      */
@@ -3549,7 +3549,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -3564,7 +3564,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -3977,7 +3977,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -4208,7 +4208,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -4231,7 +4231,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#tint}
      * attribute's value can be found in the {@link #AppCompatImageView} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -4306,7 +4306,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#tickMarkTint}
      * attribute's value can be found in the {@link #AppCompatSeekBar} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -4369,7 +4369,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -4384,7 +4384,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -4399,7 +4399,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -4414,7 +4414,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -4429,7 +4429,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -4444,7 +4444,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5060,7 +5060,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5463,7 +5463,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#colorAccent}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5474,7 +5474,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#colorBackgroundFloating}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5485,7 +5485,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#colorButtonNormal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5496,7 +5496,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#colorControlActivated}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5507,7 +5507,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#colorControlHighlight}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5518,7 +5518,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#colorControlNormal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5533,7 +5533,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5544,7 +5544,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#colorPrimary}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5555,7 +5555,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#colorPrimaryDark}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5566,7 +5566,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#colorSwitchThumbNormal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -5679,7 +5679,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -6132,7 +6132,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -6147,7 +6147,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -6186,7 +6186,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -6378,7 +6378,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ColorStateListItem_android_color android:color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ColorStateListItem_android_color android:gifcolor}</code></td><td></td></tr>
      * <tr><td><code>{@link #ColorStateListItem_android_alpha android:alpha}</code></td><td></td></tr>
      * <tr><td><code>{@link #ColorStateListItem_alpha com.example.mauro.movilvisionglosariolenguajeseas.test:alpha}</code></td><td></td></tr>
      * </table>
@@ -6411,11 +6411,11 @@ public final class R {
      * <p>This symbol is the offset where the {@link android.R.attr#color}
      * attribute's value can be found in the {@link #ColorStateListItem} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name android:color
+     * @attr name android:gifcolor
      */
     public static final int ColorStateListItem_android_color=0;
     /**
@@ -6452,7 +6452,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#buttonTint}
      * attribute's value can be found in the {@link #CompoundButton} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -8867,7 +8867,7 @@ public final class R {
      * <tr><td><code>{@link #DrawerArrowToggle_arrowHeadLength com.example.mauro.movilvisionglosariolenguajeseas.test:arrowHeadLength}</code></td><td></td></tr>
      * <tr><td><code>{@link #DrawerArrowToggle_arrowShaftLength com.example.mauro.movilvisionglosariolenguajeseas.test:arrowShaftLength}</code></td><td></td></tr>
      * <tr><td><code>{@link #DrawerArrowToggle_barLength com.example.mauro.movilvisionglosariolenguajeseas.test:barLength}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_color com.example.mauro.movilvisionglosariolenguajeseas.test:color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_color com.example.mauro.movilvisionglosariolenguajeseas.test:gifcolor}</code></td><td></td></tr>
      * <tr><td><code>{@link #DrawerArrowToggle_drawableSize com.example.mauro.movilvisionglosariolenguajeseas.test:drawableSize}</code></td><td></td></tr>
      * <tr><td><code>{@link #DrawerArrowToggle_gapBetweenBars com.example.mauro.movilvisionglosariolenguajeseas.test:gapBetweenBars}</code></td><td></td></tr>
      * <tr><td><code>{@link #DrawerArrowToggle_spinBars com.example.mauro.movilvisionglosariolenguajeseas.test:spinBars}</code></td><td></td></tr>
@@ -8929,11 +8929,11 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#color}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.example.mauro.movilvisionglosariolenguajeseas.test:color
+     * @attr name com.example.mauro.movilvisionglosariolenguajeseas.test:gifcolor
      */
     public static final int DrawerArrowToggle_color=3;
     /**
@@ -9854,7 +9854,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#iconTint}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -9973,7 +9973,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -10000,7 +10000,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -10136,7 +10136,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -10571,7 +10571,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -10752,7 +10752,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#thumbTint}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -10796,7 +10796,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#trackTint}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -10879,7 +10879,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link android.R.attr#shadowColor}
      * attribute's value can be found in the {@link #TextAppearance} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -10921,7 +10921,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -10936,7 +10936,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -10951,7 +10951,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -11363,7 +11363,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#subtitleTextColor}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -11474,7 +11474,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#titleTextColor}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -11530,7 +11530,7 @@ public final class R {
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
@@ -11541,7 +11541,7 @@ public final class R {
      * <p>This symbol is the offset where the {@link com.example.mauro.movilvisionglosariolenguajeseas.test.R.attr#backgroundTint}
      * attribute's value can be found in the {@link #ViewBackgroundHelper} array.
      *
-     * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
+     * <p>May be a gifcolor value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *

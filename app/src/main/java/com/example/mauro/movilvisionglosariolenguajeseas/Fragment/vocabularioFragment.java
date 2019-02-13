@@ -131,6 +131,7 @@ public class vocabularioFragment extends Fragment {
                                 getChildAdapterPosition(view)).getPalabra(),Toast.LENGTH_SHORT).show();
 
                 interfaceComunicaFragment.enviarVocabulario(itemsVocabulario.get(recyclerView.getChildAdapterPosition(view)));
+                onDestroy();
             }
         });
         return vista;
@@ -156,7 +157,6 @@ public class vocabularioFragment extends Fragment {
             String uri1 = "@drawable/"+cursor.getString(4);
             int resId1 = getResources().getIdentifier(uri1, "drawable", getContext().getPackageName());
             item1.setImagen1(resId1);
-
             item1.setImaSena1(cursor.getString(7));
             item1.setVideo1(cursor.getString(8));
 
