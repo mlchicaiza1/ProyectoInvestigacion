@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.deslizadorABCFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.fragment_videos;
@@ -36,6 +38,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     FragmentManager fragmentManager1 = getSupportFragmentManager();
     fragment_videos fragmentVideos;
     resultadoPracticaFragment resultadoFragment;
+    ImageView imVolverInicio;
     ImageButton imbtnAbc,imbtnAyuda, imbtnSalir;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +50,13 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         imbtnAbc = (ImageButton) findViewById(R.id.imbtnAbc);
         imbtnAyuda = (ImageButton) findViewById(R.id.imbtnAyuda);
         imbtnSalir = (ImageButton) findViewById(R.id.imbtnSalir);
+        imVolverInicio = (ImageView) findViewById(R.id.imgVolverInicio);
         imbtnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 fragment1 = new vocabularioFragment();
                 fragmentSelect1 = true;
                 fragmentManager1.beginTransaction().replace(R.id.content_main, fragment1).commit();
-
             }
         });
 
@@ -138,6 +141,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -152,15 +156,14 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         // Handle navigation view vocabularioClass clicks here.
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         int id = item.getItemId();
-
         Fragment fragment=null;
-
         boolean fragmentSelect=false;
-
-
         switch (item.getItemId()) {
-
-
+            case R.id.nav_Inicio:
+                Intent intent= new Intent(this,Main2Activity.class);
+                startActivity(intent);
+                fragmentSelect = true;
+                break;
             case R.id.nav_Abecedario:
                 fragment = new deslizadorABCFragment();
                 fragmentSelect = true;
@@ -169,8 +172,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                 fragment = new vocabularioFragment();
                 fragmentSelect = true;
                 break;
-
-
             case R.id.nav_Ayuda:
 
                 break;
@@ -183,9 +184,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commit();
-
-
-
         }
 
 
