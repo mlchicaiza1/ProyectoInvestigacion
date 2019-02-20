@@ -123,7 +123,8 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
     private Chronometer chronometer;
     private TextView txtTempor;
-    private int count=25;
+    private int count=300;
+    private LottieAnimationView animationView;
     @Override
     //protected int getLayoutId() {
        // return R.layout.camera_connection_fragment;
@@ -177,6 +178,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
         chronometer=(Chronometer) findViewById(R.id.txtCrono);
         chronometer.setBase(SystemClock.elapsedRealtime());
         txtTempor=(TextView)findViewById(R.id.txtTemp);
+        animationView=(LottieAnimationView) findViewById(R.id.animation1);
 
 
         final Display display = getWindowManager().getDefaultDisplay();
@@ -287,7 +289,12 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                             public void run() {
                                 chronometer.start();
 
-                                new CountDownTimer(20_000, 1_000) {
+                                if (chronometer.getBase()>50000){
+                                    txtTempor.setVisibility(View.VISIBLE);
+                                    animationView.loop(false);
+
+                                }
+                                new CountDownTimer(300_000, 1_000) {
                                     @Override
                                     public void onTick(long l) {
                                         txtTempor.setText(String.valueOf(count));
@@ -299,10 +306,14 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                                             count--;
                                         }
 
+
+
                                     }
+
 
                                     @Override
                                     public void onFinish() {
+
 
                                     }
                                 }.start();
@@ -312,35 +323,32 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
 
                         String valor= (String) txtTempor.getText();
-                        Boolean respuesta;
-                        if (results!=null){
 
-                            for (int i=0; i<results.size(); i++){
-                                String title=results.get(i).getTitle();
+                        if (txtTempor.getVisibility()== View.VISIBLE){
 
-                                String[] parts = title.split(" ");
-                                String part1 = parts[0];
+                            if (results!=null){
 
-                                if (Integer.parseInt(valor)< 1){
+                                for (int i=0; i<results.size(); i++){
+                                    String palabraRecog=results.get(i).getTitle();
+                                    float con=results.get(i).getConfidence();
 
-                                    for (int j=0; j<130; j++){
-                                        bundle.putString("textFromActivityA", palabra+"_"+"false" );
+                                    if (Integer.parseInt(valor)< 1){
+                                        bundle.putString("textFromActivityA",palabra+"_"+"false"+"_" +con);
                                         intent.putExtras(bundle);
-                                        //finish();
+                                        startActivity(intent);
+                                    }
+                                    if (palabraRecog.equalsIgnoreCase(palabra) && con >0.70){
+                                        bundle.putString("textFromActivityA",palabraRecog+"_"+"true"+"_" +con);
+                                        intent.putExtras(bundle);
                                         startActivity(intent);
                                     }
                                 }
-                                if (part1.equalsIgnoreCase(palabra)){
-                                    bundle.putString("textFromActivityA", palabra +"_"+"true" );
-
-                                    intent.putExtras(bundle);
-                                    //finish();
-                                    startActivity(intent);
-                                }
-
                             }
-
                         }
+
+
+
+
 
 
 

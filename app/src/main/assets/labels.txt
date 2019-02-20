@@ -1,25 +1,5 @@
 abajo
 arriba
-color
-delante final
-delante inicial
-dia
-diferente final
-diferente inicial
+delante
 encima
-escuela final
-escuela inicial
-grande
-jueves final
-jueves inicial
-limpio final
-limpio inicial
 lunes
-martes final
-martes inicial
-miercoles final
-miercoles inicial
-noche
-rojo
-verde
-viernes

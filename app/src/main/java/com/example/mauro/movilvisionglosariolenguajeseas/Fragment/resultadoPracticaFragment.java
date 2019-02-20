@@ -1,9 +1,11 @@
 package com.example.mauro.movilvisionglosariolenguajeseas.Fragment;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -39,7 +41,7 @@ public class resultadoPracticaFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    ImageView imgRespuesta;
+    ImageView imgRespuesta,imgRespuestaSena;
     TextView txtRespuesta;
     Button btnVolverSen;
 
@@ -83,21 +85,34 @@ public class resultadoPracticaFragment extends Fragment {
         imgRespuesta=(ImageView) vista.findViewById(R.id.imageView2);
         txtRespuesta=(TextView) vista.findViewById(R.id.txtResp);
         btnVolverSen=(Button)  vista.findViewById(R.id.btnVolverSen);
-
+        imgRespuestaSena = (ImageView) vista.findViewById(R.id.imgResuladoSena);
         String texto = getArguments().getString("textFromActivityB");
 
         String[] parts = texto.split("_");
         String part1 = parts[0];
         String part2=parts[1];
+        String part3=parts[2];
+
 
 
         if(part2.equalsIgnoreCase("false") ){
+
             imgRespuesta.setImageResource(R.drawable.error);
-            txtRespuesta.setText(part1);
+
+            txtRespuesta.setText(part1+"  "+part3);
+
+            int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
+            imgRespuestaSena.setImageResource(resId1);
+
 
         }else {
             imgRespuesta.setImageResource(R.drawable.like);
-            txtRespuesta.setText(part1);
+            txtRespuesta.setText(part1+"  "+part3);
+
+            int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
+            imgRespuestaSena.setImageResource(resId1);
+
+
         }
 
         btnVolverSen.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +125,8 @@ public class resultadoPracticaFragment extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 fragment_videos videosfrag=new fragment_videos();
                 videosfrag.setArguments(args);
-                transaction.replace(R.id.content_main, videosfrag).addToBackStack(null).commit();
+                transaction.replace(R.id.content_main, videosfrag).commit();
+                onDestroy();
 
             }
         });

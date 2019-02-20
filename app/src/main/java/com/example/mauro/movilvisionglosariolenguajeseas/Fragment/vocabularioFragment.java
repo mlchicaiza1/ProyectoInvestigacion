@@ -6,14 +6,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -88,6 +91,10 @@ public class vocabularioFragment extends Fragment {
         conn= new AdminSQLiteOpenHelper(getContext(),"vocabulario",null,1);
         itemsVocabulario=new ArrayList<>();
 
+        ArrayList<vocabularioClass> itemsVocabulariofil;
+        itemsVocabulariofil=new ArrayList<>();
+
+
         //setup recyclerview with the vocabularioAdapter
         View vista=inflater.inflate(R.layout.fragment_list_cards, container, false);
        recyclerView = vista.findViewById(R.id.rv_list);
@@ -99,6 +106,7 @@ public class vocabularioFragment extends Fragment {
 
         consultarListaVocabulario();
         final vocabularioAdapter vocabularioAdapter =new vocabularioAdapter(getContext(),itemsVocabulario);
+
         recyclerView.setAdapter(vocabularioAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -114,17 +122,8 @@ public class vocabularioFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int i, int i1, int i2) {
                     vocabularioAdapter.getFilter().filter(s.toString());
-                vocabularioAdapter.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getContext(),"Seleccion: "+
-                                itemsVocabulario.get(recyclerView.
-                                        getChildAdapterPosition(view)).getPalabra(),Toast.LENGTH_SHORT).show();
 
-                        interfaceComunicaFragment.enviarVocabulario(itemsVocabulario.get(recyclerView.getChildAdapterPosition(view)));
-                        onDestroy();
-                    }
-                });
+
             }
 
             @Override
@@ -137,14 +136,21 @@ public class vocabularioFragment extends Fragment {
         vocabularioAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Seleccion: "+
-                        itemsVocabulario.get(recyclerView.
-                                getChildAdapterPosition(view)).getPalabra(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(),"Seleccion: "+itemsVocabulario.get(recyclerView.getChildAdapterPosition(view)).getPalabra(),Toast.LENGTH_SHORT).show();
 
-                interfaceComunicaFragment.enviarVocabulario(itemsVocabulario.get(recyclerView.getChildAdapterPosition(view)));
+                //Toast.makeText(getContext(), "selec: "+vocabularioAdapter.getItem(recyclerView.getChildAdapterPosition(view)), Toast.LENGTH_SHORT).show();
+
+                interfaceComunicaFragment.enviarVocabulario(vocabularioAdapter.getItem(recyclerView.getChildAdapterPosition(view)));
+                //interfaceComunicaFragment.enviarVocabulario(itemsVocabulario.get(recyclerView.getChildAdapterPosition(view)));
+                InputMethodManager inputMethodManager =(InputMethodManager) vista.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                IBinder binder =vista.getWindowToken();
+                inputMethodManager.hideSoftInputFromWindow(binder,InputMethodManager.HIDE_NOT_ALWAYS);
+
                 onDestroy();
+
             }
         });
+
         return vista;
     }
 

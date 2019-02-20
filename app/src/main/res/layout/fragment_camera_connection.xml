@@ -24,29 +24,37 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
-    <Chronometer
-        android:id="@+id/txtCrono"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/results"
-        android:layout_marginEnd="43dp"
-        android:layout_marginTop="15dp"
-        android:textSize="@android:dimen/app_icon_size"
-        android:visibility="invisible" />
+ <com.airbnb.lottie.LottieAnimationView
+     android:id="@+id/animation1"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     app:lottie_autoPlay="true"
+     app:lottie_fileName="297-loading-rainbow.json"
+     app:lottie_imageAssetsFolder="assets"
+     app:lottie_loop="true" />
+
+ <Chronometer
+     android:id="@+id/txtCrono"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@+id/txtTemp"
+     android:layout_centerHorizontal="true"
+     android:layout_marginTop="85dp"
+     android:gravity="center_horizontal"
+     android:textSize="60dp"
+     android:visibility="invisible" />
 
     <TextView
         android:id="@+id/txtTemp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtCrono"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="24dp"
-        android:layout_toStartOf="@+id/txtCrono"
-        android:text="10"
-        android:textColor="@android:color/holo_green_light"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/txtCrono"
+        android:layout_below="@+id/results"
+        android:text="30"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textStyle="italic"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>

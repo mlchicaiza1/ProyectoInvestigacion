@@ -80,6 +80,9 @@ public class vocabularioAdapter extends RecyclerView.Adapter<vocabularioAdapter.
         }
     }
 
+    public  vocabularioClass getItem(int position){
+        return vocabularioFliter.get(position);
+    }
     @Override
     public Filter getFilter() {
         return mFilter;
