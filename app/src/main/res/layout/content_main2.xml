@@ -9,53 +9,6 @@
     tools:context="com.example.mauro.movilvisionglosariolenguajeseas.Main2Activity"
     tools:showIn="@layout/app_bar_main2">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/imbtnInicio"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/imbtnAbc"
-            android:layout_marginStart="18dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/play"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="134dp" />
-
-        <ImageButton
-            android:id="@+id/imbtnAbc"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="103dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/abcd"
-            tools:layout_editor_absoluteX="167dp"
-            tools:layout_editor_absoluteY="89dp" />
-
-        <ImageButton
-            android:id="@+id/imbtnAyuda"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/imbtnAbc"
-            android:layout_marginEnd="19dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ayuda" />
-
-        <ImageButton
-            android:id="@+id/imbtnSalir"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_below="@+id/imbtnAbc"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="66dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/exit" />
-    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -5,8 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.MotionEvent;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,11 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.deslizadorABCFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.fragment_videos;
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.inicioFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.vocabularioFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Interfaces.IComunicaFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.model.vocabularioClass;
@@ -30,35 +28,26 @@ import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.resultadoPract
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
         vocabularioFragment.OnFragmentInteractionListener,deslizadorABCFragment.OnFragmentInteractionListener,
-        fragment_videos.OnFragmentInteractionListener,resultadoPracticaFragment.OnFragmentInteractionListener, IComunicaFragment {
+        fragment_videos.OnFragmentInteractionListener,resultadoPracticaFragment.OnFragmentInteractionListener, inicioFragment.OnFragmentInteractionListener, IComunicaFragment {
 
-    ImageButton imbtnPlay;
     Fragment fragment1 = null;
     boolean fragmentSelect1 = false;
     FragmentManager fragmentManager1 = getSupportFragmentManager();
     fragment_videos fragmentVideos;
     resultadoPracticaFragment resultadoFragment;
     ImageView imVolverInicio;
-    ImageButton imbtnAbc,imbtnAyuda, imbtnSalir;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        imbtnPlay = (ImageButton) findViewById(R.id.imbtnInicio);
-        imbtnAbc = (ImageButton) findViewById(R.id.imbtnAbc);
-        imbtnAyuda = (ImageButton) findViewById(R.id.imbtnAyuda);
-        imbtnSalir = (ImageButton) findViewById(R.id.imbtnSalir);
+        Fragment fragment = new inicioFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_main, fragment ).commit();
+
         imVolverInicio = (ImageView) findViewById(R.id.imgVolverInicio);
-        imbtnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragment1 = new vocabularioFragment();
-                fragmentSelect1 = true;
-                fragmentManager1.beginTransaction().replace(R.id.content_main, fragment1).commit();
-            }
-        });
 
         Bundle bundle = getIntent().getExtras();
         // Obtienes el texto
@@ -76,32 +65,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             getSupportFragmentManager().beginTransaction().
                     replace(R.id.content_main,resultadoFragment).addToBackStack(null).commit();
         }
-
-
-
-        imbtnAbc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragment1 = new deslizadorABCFragment();
-                fragmentSelect1 = true;
-                fragmentManager1.beginTransaction().replace(R.id.content_main, fragment1).commit();
-            }
-        });
-
-        imbtnSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
-       /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -160,8 +123,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         boolean fragmentSelect=false;
         switch (item.getItemId()) {
             case R.id.nav_Inicio:
-                Intent intent= new Intent(this,Main2Activity.class);
-                startActivity(intent);
+                fragment = new inicioFragment();
                 fragmentSelect = true;
                 break;
             case R.id.nav_Abecedario:
@@ -199,9 +161,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
     @Override
     public void enviarVocabulario(vocabularioClass vocabulario) {
-
-        //fragmentVideos=(fragment_videos) this.getSupportFragmentManager().findFragmentById(R.id.)
-
         fragmentVideos=new fragment_videos();
         Bundle bundleEnvio=new Bundle();
         bundleEnvio.putSerializable("objeto",vocabulario);
