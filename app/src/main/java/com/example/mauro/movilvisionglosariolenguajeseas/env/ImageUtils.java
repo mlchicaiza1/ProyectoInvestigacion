@@ -59,6 +59,7 @@ public class ImageUtils {
      *
      * @param bitmap The bitmap to save.
      */
+    //
     public static void saveBitmap(final Bitmap bitmap) {
         final String root =
                 Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "tensorflow";
@@ -190,12 +191,9 @@ public class ImageUtils {
     }
 
     public static Matrix getTransformationMatrix(
-            final int srcWidth,
-            final int srcHeight,
-            final int dstWidth,
-            final int dstHeight,
-            final int applyRotation,
-            final boolean maintainAspectRatio) {
+            final int srcWidth,final int srcHeight,
+            final int dstWidth,final int dstHeight,
+            final int applyRotation,final boolean maintainAspectRatio) {
         final Matrix matrix = new Matrix();
 
         if (applyRotation != 0) {

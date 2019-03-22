@@ -53,11 +53,13 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         // Obtienes el texto
         if (bundle!=null){
             String texto = bundle.getString("textFromActivityA");
+            int posicion=bundle.getInt("datoPos");
 
             // Creamos un nuevo Bundle
             Bundle args = new Bundle();
             // Colocamos el String
             args.putString("textFromActivityB", texto);
+            args.putInt("datosPosicion",posicion);
 
             resultadoFragment=new resultadoPracticaFragment();
             resultadoFragment.setArguments(args);

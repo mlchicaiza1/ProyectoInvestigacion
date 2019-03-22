@@ -14,16 +14,20 @@ public class vocabularioClass implements Serializable {
     String palabra;
     String video1;
     String imaSena1;
+
+
+    String practicaSena;
     public vocabularioClass() {
     }
 
-    public vocabularioClass(int fondoletra, String letra, int imagen1, String palabra, String video,String imaSena) {
+    public vocabularioClass(int fondoletra, String letra, int imagen1, String palabra, String video,String imaSena, String practicaSena) {
         this.fondoletra = fondoletra;
         this.letra = letra;
         this.imagen1 = imagen1;
         this.palabra = palabra;
         this.video1 = video;
         this.imaSena1 = imaSena;
+        this.practicaSena=practicaSena;
     }
 
     public String getImaSena1() {    return imaSena1;  }
@@ -65,4 +69,8 @@ public class vocabularioClass implements Serializable {
     public void setPalabra(String palabra) {
         this.palabra = palabra;
     }
+
+    public String getPracticaSena() {return practicaSena;}
+
+    public void setPracticaSena(String practicaSena) {this.practicaSena = practicaSena;}
 }

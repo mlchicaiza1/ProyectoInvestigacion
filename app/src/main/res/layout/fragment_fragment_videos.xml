@@ -16,9 +16,10 @@
         <ImageView
             android:id="@+id/imgPalabrasena"
             android:layout_width="193dp"
-            android:layout_height="126dp"
+            android:layout_height="128dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            android:scaleType="fitCenter"
             app:layout_constraintEnd_toStartOf="@+id/imgSena"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="1dp" />
@@ -26,8 +27,9 @@
         <ImageView
             android:id="@+id/imgSena"
             android:layout_width="129dp"
-            android:layout_height="126dp"
+            android:layout_height="128dp"
             android:layout_marginEnd="8dp"
+            android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             tools:layout_editor_absoluteY="1dp" />
     </android.support.constraint.ConstraintLayout>
@@ -81,6 +83,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:src="@android:drawable/presence_video_away"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imbtnAyuda"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,8 +91,8 @@
 
         <ImageButton
             android:id="@+id/imbtnInicio"
-            android:layout_width="72dp"
-            android:layout_height="78dp"
+            android:layout_width="74dp"
+            android:layout_height="71dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="16dp"
@@ -102,7 +105,7 @@
 
         <ImageButton
             android:id="@+id/imbtnAyuda"
-            android:layout_width="82dp"
+            android:layout_width="74dp"
             android:layout_height="71dp"
             android:layout_centerVertical="true"
             android:layout_marginBottom="16dp"
@@ -116,8 +119,8 @@
 
         <ImageButton
             android:id="@+id/imbtnVolver"
-            android:layout_width="77dp"
-            android:layout_height="81dp"
+            android:layout_width="74dp"
+            android:layout_height="71dp"
             android:layout_alignTop="@+id/imbtnInicio"
             android:layout_marginBottom="16dp"
             android:layout_marginStart="16dp"

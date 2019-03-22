@@ -87,6 +87,7 @@ public class resultadoPracticaFragment extends Fragment {
         btnVolverSen=(Button)  vista.findViewById(R.id.btnVolverSen);
         imgRespuestaSena = (ImageView) vista.findViewById(R.id.imgResuladoSena);
         String texto = getArguments().getString("textFromActivityB");
+        int posicion=getArguments().getInt("datosPosicion");
 
         String[] parts = texto.split("_");
         String part1 = parts[0];
@@ -99,7 +100,7 @@ public class resultadoPracticaFragment extends Fragment {
 
             imgRespuesta.setImageResource(R.drawable.error);
 
-            txtRespuesta.setText(part1+"  "+part3);
+            txtRespuesta.setText(part1);
 
             int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
             imgRespuestaSena.setImageResource(resId1);
@@ -107,7 +108,7 @@ public class resultadoPracticaFragment extends Fragment {
 
         }else {
             imgRespuesta.setImageResource(R.drawable.like);
-            txtRespuesta.setText(part1+"  "+part3);
+            txtRespuesta.setText(part1);
 
             int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
             imgRespuestaSena.setImageResource(resId1);
@@ -119,14 +120,29 @@ public class resultadoPracticaFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Bundle args = new Bundle();
-                // Colocamos el String
-                args.putString("palabra", part1);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                fragment_videos videosfrag=new fragment_videos();
-                videosfrag.setArguments(args);
-                transaction.replace(R.id.content_main, videosfrag).commit();
-                onDestroy();
+                if(part1.length()<3){
+                    Bundle args = new Bundle();
+                    // Colocamos el String
+                    args.putString("palabra", part1);
+                    args.putInt("datosPos",posicion);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    deslizadorABCFragment desFrag=new deslizadorABCFragment();
+                    desFrag.setArguments(args);
+                    transaction.replace(R.id.content_main,desFrag).commit();
+                    onDestroy();
+                }
+
+                if(part1.length()>3){
+                    Bundle args = new Bundle();
+                    // Colocamos el String
+                    args.putString("palabra", part1);
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    fragment_videos videosfrag=new fragment_videos();
+                    videosfrag.setArguments(args);
+                    transaction.replace(R.id.content_main, videosfrag).commit();
+                    onDestroy();
+                }
+
 
             }
         });

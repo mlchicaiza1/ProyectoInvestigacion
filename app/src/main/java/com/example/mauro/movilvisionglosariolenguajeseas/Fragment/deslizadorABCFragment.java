@@ -1,21 +1,28 @@
 package com.example.mauro.movilvisionglosariolenguajeseas.Fragment;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mauro.movilvisionglosariolenguajeseas.Adaptador.deslizadorAdapter;
+import com.example.mauro.movilvisionglosariolenguajeseas.Interfaces.IComunicaFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Main2Activity;
 import com.example.mauro.movilvisionglosariolenguajeseas.R;
+import com.example.mauro.movilvisionglosariolenguajeseas.view.ClassifierActivity;
 
 
 /**
@@ -36,14 +43,17 @@ public class deslizadorABCFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    Activity activity;
+    IComunicaFragment interfaceComunicaFragment;
     private OnFragmentInteractionListener mListener;
 
     private ViewPager vpDeslizar;
     private LinearLayout lyPuntos;
     private deslizadorAdapter deslizadorAdapte;
     private TextView[] puntos;
-    private Button btnAtras, btnAdelante;
+    private Button btnAtras, btnAdelante,btnpracticar;
     private int mCurrentPage;
+
 
     public deslizadorABCFragment() {
         // Required empty public constructor
@@ -74,6 +84,7 @@ public class deslizadorABCFragment extends Fragment {
 
     }
 
+    int posicion=30;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -83,12 +94,32 @@ public class deslizadorABCFragment extends Fragment {
         lyPuntos = (LinearLayout) vista.findViewById(R.id.puntos);
         btnAtras = (Button) vista.findViewById(R.id.btnAtras);
         btnAdelante = (Button) vista.findViewById(R.id.btnSiguiente);
+        btnpracticar =(Button) vista.findViewById(R.id.btnPrac);
         deslizadorAdapte = new deslizadorAdapter(getContext());
         vpDeslizar.setAdapter(deslizadorAdapte);
 
         anadirIndicadorPnts(0);
 
+       //
+        //
         vpDeslizar.addOnPageChangeListener(viewListener);
+
+        try {
+            String texto=getArguments().getString("palabra");
+            posicion=getArguments().getInt("datosPos");
+
+            if (posicion!=30){
+                vpDeslizar.setCurrentItem(posicion);
+            }
+
+
+            Toast.makeText(getContext(),"Seleccion: "+texto+posicion,Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+
+        }
+
+
+
 
         btnAdelante.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +138,10 @@ public class deslizadorABCFragment extends Fragment {
 
             }
         });
+
+
+
+
         return vista;
     }
 
@@ -196,7 +231,20 @@ public class deslizadorABCFragment extends Fragment {
     }
 
 
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
+        if (context instanceof Activity){
+            this.activity=(Activity) context;
+            interfaceComunicaFragment=(IComunicaFragment) this.activity;
+        }
+
+        if (context instanceof deslizadorABCFragment.OnFragmentInteractionListener) {
+            mListener = (deslizadorABCFragment.OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
+        }
+    }
 
     @Override
     public void onDetach() {

@@ -51,41 +51,21 @@ import com.example.mauro.movilvisionglosariolenguajeseas.env.Logger;
 public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener {
     private static final Logger LOGGER = new Logger();
 
-
-    // These are the settings for the original v1 Inception model. If you want to
-    // use a model that's been produced from the TensorFlow for Poets codelab,
-    // you'll need to set IMAGE_SIZE = 299, IMAGE_MEAN = 128, IMAGE_STD = 128,
-    // INPUT_NAME = "Mul", and OUTPUT_NAME = "final_result".
-    // You'll also need to update the MODEL_FILE and LABEL_FILE paths to point to
-    // the ones you produced.
-    //
-    // To use v3 Inception model, strip the DecodeJpeg Op from your retrained
-    // model first:
-    //
-    // python strip_unused.py \
-    // --input_graph=<retrained-pb-file> \
-    // --output_graph=<your-stripped-pb-file> \
-    // --input_node_names="Mul" \
-    // --output_node_names="final_result" \
-    // --input_binary=true
-
-  /* Inception V3
-  private static final int INPUT_SIZE = 299;
-  private static final int IMAGE_MEAN = 128;
-  private static final float IMAGE_STD = 128.0f;
-  private static final String INPUT_NAME = "Mul:0";
-  private static final String OUTPUT_NAME = "final_result";
-  */
-
     private static final int INPUT_SIZE = 224;
     private static final int IMAGE_MEAN = 128;
     private static final float IMAGE_STD = 128.0f;
-    private static final String INPUT_NAME = "input";
+    //private static final String INPUT_NAME = "input";
+    private static final String INPUT_NAME = "Placeholder";
     private static final String OUTPUT_NAME = "final_result";
 
-    private static final String MODEL_FILE = "file:///android_asset/graph.pb";
-    private static final String LABEL_FILE = "file:///android_asset/labels.txt";
+    private static final String MODEL_FILE = "file:///android_asset/graphVocabParte1.pb";
+    private static final String LABEL_FILE = "file:///android_asset/labelsVocabParte1.txt";
 
+    private static final String MODEL_FILE1 = "file:///android_asset/graphVocabParte2.pb";
+    private static final String LABEL_FILE1 = "file:///android_asset/labelsVocabParte2.txt";
+
+    private static final String MODEL_FILE2 = "file:///android_asset/graphAbcParte1.pb";
+    private static final String LABEL_FILE2 = "file:///android_asset/labelsAbcParte1.txt";
     private static final boolean SAVE_PREVIEW_BITMAP = false;
 
     private static final boolean MAINTAIN_ASPECT = true;
@@ -98,6 +78,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
     private int previewWidth = 0;
     private int previewHeight = 0;
+
     private byte[][] yuvBytes;
     private int[] rgbBytes = null;
     private Bitmap rgbFrameBitmap = null;
@@ -119,11 +100,13 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     private Bundle bundle;
     private OverlayView overlayView1;
     private String palabra;
+    private String letra;
     private Intent intent;
 
     private Chronometer chronometer;
     private TextView txtTempor;
     private int count=300;
+    private int posicion=30;
     private LottieAnimationView animationView;
     @Override
     //protected int getLayoutId() {
@@ -139,18 +122,62 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
     private static final float TEXT_SIZE_DIP = 10;
 
-
-
-
     @Override
     public void onPreviewSizeChosen(final Size size, final int rotation) {
+
+        //obtner tamaño del borderedTex para la visualizacion de los datos del reconocimento
         final float textSizePx = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
+
         borderedText = new BorderedText(textSizePx);
         borderedText.setTypeface(Typeface.MONOSPACE);
 
-        classifier =
-                TensorFlowImageClassifier.create(
+
+
+        resultsView = (ResultsView) findViewById(R.id.results);
+        overlayView1=(OverlayView)  findViewById(R.id.debug_overlay);
+        previewWidth = size.getWidth();
+        previewHeight = size.getHeight();
+
+
+        String [] palabrasModel={"abajo",
+                "arriba",
+                "encima",
+                "escuela",
+                "familia",
+                "fondos",
+                "limpio",
+        };
+        bundle=this.getIntent().getExtras();
+        boolean encontrar=false;
+
+        //Reconocimiento Vocabulario
+        if (bundle !=null && bundle.getString("dato").length()>3){
+            //overlayView.getResults(bundle.getString("dato"));
+            Toast.makeText(this,"Seleccion: "+ bundle.getString("dato"),Toast.LENGTH_SHORT).show();
+            overlayView1.getResults(bundle.getString("dato"));
+            palabra=bundle.getString("dato");
+
+            for (String elment:palabrasModel){
+                if (elment.equalsIgnoreCase(palabra)){
+                    encontrar=true;
+                    break;
+                }
+            }
+            if (encontrar){
+
+                classifier = TensorFlowImageClassifier.create(
+                        getAssets(),
+                        MODEL_FILE1,
+                        LABEL_FILE1,
+                        INPUT_SIZE,
+                        IMAGE_MEAN,
+                        IMAGE_STD,
+                        INPUT_NAME,
+                        OUTPUT_NAME);
+
+            }else{
+                classifier = TensorFlowImageClassifier.create(
                         getAssets(),
                         MODEL_FILE,
                         LABEL_FILE,
@@ -159,21 +186,28 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                         IMAGE_STD,
                         INPUT_NAME,
                         OUTPUT_NAME);
+            }
+        }
 
-        resultsView = (ResultsView) findViewById(R.id.results);
-        overlayView1=(OverlayView)  findViewById(R.id.debug_overlay);
-        previewWidth = size.getWidth();
-        previewHeight = size.getHeight();
-
-
-        bundle=this.getIntent().getExtras();
-        if (bundle !=null){
+        //Reconocimiento Abecedario
+        if (bundle !=null && bundle.getString("dato").length()<3){
             //overlayView.getResults(bundle.getString("dato"));
-            Toast.makeText(this,"Seleccion: "+ bundle.getString("dato"),Toast.LENGTH_SHORT).show();
+            posicion=bundle.getInt("datoPos");
+            Toast.makeText(this,"Seleccion: "+ bundle.getString("dato") + posicion,Toast.LENGTH_SHORT).show();
             overlayView1.getResults(bundle.getString("dato"));
             palabra=bundle.getString("dato");
 
+            classifier = TensorFlowImageClassifier.create(
+                    getAssets(),
+                    MODEL_FILE2,
+                    LABEL_FILE2,
+                    INPUT_SIZE,
+                    IMAGE_MEAN,
+                    IMAGE_STD,
+                    INPUT_NAME,
+                    OUTPUT_NAME);
         }
+
         intent= new Intent (ClassifierActivity.this, Main2Activity.class);
         chronometer=(Chronometer) findViewById(R.id.txtCrono);
         chronometer.setBase(SystemClock.elapsedRealtime());
@@ -185,7 +219,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
         final int screenOrientation = display.getRotation();
 
         LOGGER.i("Sensor orientation: %d, Screen orientation: %d", rotation, screenOrientation);
-
         sensorOrientation = rotation + screenOrientation;
 
         LOGGER.i("Initializing at size %dx%d", previewWidth, previewHeight);
@@ -214,8 +247,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
     }
 
-
-
     @Override
     public void onImageAvailable(final ImageReader reader) {
         Image image = null;
@@ -223,9 +254,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
         try {
             image = reader.acquireLatestImage();
 
-            if (image == null) {
-                return;
-            }
+            if (image == null) {return;}
 
             if (computing) {
                 image.close();
@@ -281,15 +310,12 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                         cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
                         resultsView.setResults(results);
                         overlayView1.setResults(results);
-
-
-
                         chronometer.post(new Runnable() {
                             @Override
                             public void run() {
                                 chronometer.start();
 
-                                if (chronometer.getBase()>50000){
+                                if (count<300){
                                     txtTempor.setVisibility(View.VISIBLE);
                                     animationView.loop(false);
 
@@ -305,8 +331,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                                         if (count>0){
                                             count--;
                                         }
-
-
 
                                     }
 
@@ -332,27 +356,50 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                                     String palabraRecog=results.get(i).getTitle();
                                     float con=results.get(i).getConfidence();
 
-                                    if (Integer.parseInt(valor)< 1){
+                                    if (Integer.parseInt(valor)< 1 ){
                                         bundle.putString("textFromActivityA",palabra+"_"+"false"+"_" +con);
+                                        if (posicion != 30){
+                                            bundle.putInt("datoPos",posicion);
+                                        }
                                         intent.putExtras(bundle);
+
                                         startActivity(intent);
+
+
                                     }
-                                    if (palabraRecog.equalsIgnoreCase(palabra) && con >0.70){
+                                    if (palabraRecog.equalsIgnoreCase(palabra) && con >0.27){
                                         bundle.putString("textFromActivityA",palabraRecog+"_"+"true"+"_" +con);
+                                        if (posicion != 30){
+                                            bundle.putInt("datoPos",posicion);
+                                        }
                                         intent.putExtras(bundle);
+
                                         startActivity(intent);
+
+
                                     }
+
+                                    String dat=palabraRecog;
+                                    if (palabraRecog != palabra && palabraRecog !=dat ){
+                                        if (con >0.71){
+                                            bundle.putString("textFromActivityA",palabraRecog+"_"+"false"+"_" +con);
+
+                                            if (posicion != 30){
+                                                bundle.putInt("datoPos",posicion);
+                                            }
+                                            intent.putExtras(bundle);
+                                            startActivity(intent);
+                                        }
+
+
+
+                                    }
+
+
                                 }
+
                             }
                         }
-
-
-
-
-
-
-
-
 
                         requestRender();
 

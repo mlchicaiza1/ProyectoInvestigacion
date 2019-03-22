@@ -1,15 +1,19 @@
 package com.example.mauro.movilvisionglosariolenguajeseas.Adaptador;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mauro.movilvisionglosariolenguajeseas.R;
+import com.example.mauro.movilvisionglosariolenguajeseas.view.ClassifierActivity;
 
 /**
  * Created by Pao on 25/10/2018.
@@ -55,7 +59,7 @@ public class deslizadorAdapter extends PagerAdapter {
     };
 
     public String[] deslizar_nombres = {
-            "A","B","C","D","E","F","G","H","I","J","K","L","LL","M","N","O","P","Q","R","RR","S","T","U","V","W","X","Y","Z"
+            "Aa","Bb","Cc","Dd","Ee","Ff","Gg","Hh","I","J","Kk","L","LL","M","N","Oo","P","Qq","Rr","RR","S","T","U","V","Ww","Xx","Yy","Z"
     };
     @Override
     public int getCount() {
@@ -77,6 +81,26 @@ public class deslizadorAdapter extends PagerAdapter {
         TextView txtLetra = (TextView) view.findViewById(R.id.txtletra);
         deslizarImagen.setImageResource(deslizar_imagen[position]);
         txtLetra.setText(deslizar_nombres[position]);
+        Button btnpracticar=(Button) view.findViewById(R.id.btnPrac) ;
+
+
+        if(deslizar_nombres[position].length()>1 && deslizar_nombres[position]!="RR" && deslizar_nombres[position]!="LL"){
+            btnpracticar.setVisibility(View.VISIBLE);
+        }
+
+        btnpracticar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, ClassifierActivity.class);
+                Bundle bundle =new Bundle();
+                bundle.putString("dato",txtLetra.getText().toString());
+                bundle.putInt("datoPos",position);
+                intent.putExtras(bundle);
+
+                //((GifDrawable)gifImagen1.getDrawable()).stop();
+                context.startActivity(intent);
+            }
+        });
 
         container.addView(view);
 

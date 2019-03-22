@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -61,6 +62,13 @@ public class vocabularioAdapter extends RecyclerView.Adapter<vocabularioAdapter.
       holder.imgLetraPalabra.setImageResource(vocabularioFliter.get(position).getImagen1());
       holder.txtLetra.setText(vocabularioFliter.get(position).getLetra());
       holder.txtPalabraGlosario.setText(vocabularioFliter.get(position).getPalabra());
+      if (vocabularioFliter.get(position).getPracticaSena().equalsIgnoreCase("1")){
+
+          holder.btnPractica.setText("Practica");
+
+      }else {
+          holder.btnPractica.setText("No");
+      }
 
     }
 
@@ -92,6 +100,7 @@ public class vocabularioAdapter extends RecyclerView.Adapter<vocabularioAdapter.
 
         ImageView imgLetraPalabra,imgFondoPalabra;
         TextView txtLetra,txtPalabraGlosario;
+        Button btnPractica;
 
         public myViewHolder(View itemView){
             super(itemView);
@@ -99,6 +108,7 @@ public class vocabularioAdapter extends RecyclerView.Adapter<vocabularioAdapter.
             imgFondoPalabra=itemView.findViewById(R.id.imgFondo);
             txtLetra=itemView.findViewById(R.id.txtletra);
             txtPalabraGlosario=itemView.findViewById(R.id.txtPalabra);
+            btnPractica=itemView.findViewById(R.id.btnVerPalabra);
         }
     }
 

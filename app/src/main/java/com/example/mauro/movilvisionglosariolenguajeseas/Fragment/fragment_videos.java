@@ -92,7 +92,6 @@ public class fragment_videos extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-
         View vista =inflater.inflate(R.layout.fragment_fragment_videos, container, false);
 
         final android.support.v4.app.Fragment fragment1 = null;
@@ -110,7 +109,9 @@ public class fragment_videos extends Fragment {
 
         Bundle objetoVocabulario=getArguments();
         vocabularioClass vocabulario=null;
+
         texto = getArguments().getString("palabra");
+
         if (objetoVocabulario !=null && texto==null){
             vocabulario=(vocabularioClass) objetoVocabulario.getSerializable("objeto");
             txtpalabraSen.setText(vocabulario.getPalabra());
@@ -122,6 +123,10 @@ public class fragment_videos extends Fragment {
             //gif de la seña
             int imageResource = getResources().getIdentifier(vocabulario.getVideo1(), "drawable",getContext().getPackageName() );
             gifImagen1.setImageResource(imageResource);
+
+            if (vocabulario.getPracticaSena().equalsIgnoreCase("1")){
+                btnPractica.setVisibility(View.VISIBLE);
+            }
         }
 
 
@@ -136,6 +141,9 @@ public class fragment_videos extends Fragment {
 
             int resId3 = getResources().getIdentifier(String.valueOf("@drawable/gif"+texto.toLowerCase()), "drawable", getContext().getPackageName());
             gifImagen1.setImageResource(resId3);
+
+                btnPractica.setVisibility(View.VISIBLE);
+
         }
 
 

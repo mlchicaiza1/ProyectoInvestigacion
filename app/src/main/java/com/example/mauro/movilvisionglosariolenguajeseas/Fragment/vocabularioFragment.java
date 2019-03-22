@@ -123,7 +123,6 @@ public class vocabularioFragment extends Fragment {
             public void onTextChanged(CharSequence s, int i, int i1, int i2) {
                     vocabularioAdapter.getFilter().filter(s.toString());
 
-
             }
 
             @Override
@@ -174,6 +173,7 @@ public class vocabularioFragment extends Fragment {
             String uri1 = "@drawable/"+cursor.getString(4);
             int resId1 = getResources().getIdentifier(uri1, "drawable", getContext().getPackageName());
             item1.setImagen1(resId1);
+            item1.setPracticaSena(cursor.getString(6));
             item1.setImaSena1(cursor.getString(7));
             item1.setVideo1(cursor.getString(8));
 

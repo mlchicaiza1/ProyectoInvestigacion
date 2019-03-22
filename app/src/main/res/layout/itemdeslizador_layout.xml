@@ -34,6 +34,16 @@
             android:textSize="56sp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints,UnknownId" />
+
+        <Button
+            android:id="@+id/btnPrac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtletra"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="12dp"
+            android:text="Practicar"
+            android:visibility="invisible" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
