@@ -2,6 +2,5 @@ color
 delante
 fondos
 lunes
-viernes
 noche
 rojo

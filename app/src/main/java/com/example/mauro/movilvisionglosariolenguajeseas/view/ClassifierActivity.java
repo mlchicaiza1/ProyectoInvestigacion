@@ -65,7 +65,9 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     private static final String LABEL_FILE1 = "file:///android_asset/labelsVocabParte2.txt";
 
     private static final String MODEL_FILE2 = "file:///android_asset/graphAbcParte1.pb";
-    private static final String LABEL_FILE2 = "file:///android_asset/labelsAbcParte1.txt";
+    //private static final String LABEL_FILE2 = "file:///android_asset/labelsAbcParte1.txt";
+
+    private static final String LABEL_FILE2 = "file:///android_asset/labels.txt";
     private static final boolean SAVE_PREVIEW_BITMAP = false;
 
     private static final boolean MAINTAIN_ASPECT = true;
