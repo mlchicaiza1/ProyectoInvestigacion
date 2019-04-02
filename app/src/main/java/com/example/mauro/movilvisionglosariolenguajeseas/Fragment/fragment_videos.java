@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.mauro.movilvisionglosariolenguajeseas.Main2Activity;
@@ -27,12 +28,15 @@ import com.example.mauro.movilvisionglosariolenguajeseas.model.AdminSQLiteOpenHe
 import com.example.mauro.movilvisionglosariolenguajeseas.model.vocabularioClass;
 import com.example.mauro.movilvisionglosariolenguajeseas.view.ClassifierActivity;
 
+
+
 import java.io.IOException;
 import java.io.InputStream;
 
 import pl.droidsonroids.gif.GifAnimationMetaData;
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
+
 
 
 
@@ -112,6 +116,11 @@ public class fragment_videos extends Fragment {
 
         texto = getArguments().getString("palabra");
 
+
+        int posicion1=getArguments().getInt("posReciclerView");
+        Toast.makeText(getContext(),"Seleccion: "+ "" + posicion1,Toast.LENGTH_SHORT).show();
+
+
         if (objetoVocabulario !=null && texto==null){
             vocabulario=(vocabularioClass) objetoVocabulario.getSerializable("objeto");
             txtpalabraSen.setText(vocabulario.getPalabra());
@@ -124,6 +133,8 @@ public class fragment_videos extends Fragment {
             int imageResource = getResources().getIdentifier(vocabulario.getVideo1(), "drawable",getContext().getPackageName() );
             gifImagen1.setImageResource(imageResource);
 
+
+
             if (vocabulario.getPracticaSena().equalsIgnoreCase("1")){
                 btnPractica.setVisibility(View.VISIBLE);
             }
@@ -133,6 +144,7 @@ public class fragment_videos extends Fragment {
         if (texto != null){
             txtpalabraSen.setText(texto);
             //String uri1 = "@drawable/"+texto+"fondo";
+            texto=texto.replace("ñ","n");
             int resId1 = getResources().getIdentifier(String.valueOf("@drawable/"+texto.toLowerCase()+"fondo"), "drawable", getContext().getPackageName());
             imgPalabraSena.setImageResource(resId1);
 
@@ -141,6 +153,8 @@ public class fragment_videos extends Fragment {
 
             int resId3 = getResources().getIdentifier(String.valueOf("@drawable/gif"+texto.toLowerCase()), "drawable", getContext().getPackageName());
             gifImagen1.setImageResource(resId3);
+
+
 
                 btnPractica.setVisibility(View.VISIBLE);
 

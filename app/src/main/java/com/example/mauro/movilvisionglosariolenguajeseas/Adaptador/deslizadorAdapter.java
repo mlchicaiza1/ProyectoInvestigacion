@@ -31,6 +31,7 @@ public class deslizadorAdapter extends PagerAdapter {
             R.drawable.sena_a,
             R.drawable.sena_b,
             R.drawable.sena_c,
+            R.drawable.sena_ch,
             R.drawable.sena_d,
             R.drawable.sena_e,
             R.drawable.sena_f,
@@ -43,6 +44,7 @@ public class deslizadorAdapter extends PagerAdapter {
             R.drawable.sena_ll,
             R.drawable.sena_m,
             R.drawable.sena_n,
+            R.drawable.sena_n1,
             R.drawable.sena_o,
             R.drawable.sena_p,
             R.drawable.sena_q,
@@ -59,7 +61,7 @@ public class deslizadorAdapter extends PagerAdapter {
     };
 
     public String[] deslizar_nombres = {
-            "Aa","Bb","Cc","Dd","Ee","Ff","Gg","Hh","I","J","Kk","L","LL","M","N","Oo","P","Qq","Rr","RR","S","T","U","V","Ww","Xx","Yy","Z"
+            "Aa","Bb","Cc","Ch","Dd","Ee","Ff","Gg","Hh","Ii","J","Kk","Ll","LL","M","N","Ñ","Oo","P","Q","R","RR","S","T","U","Vv","Ww","Xx","Yy","Z"
     };
     @Override
     public int getCount() {
@@ -84,7 +86,7 @@ public class deslizadorAdapter extends PagerAdapter {
         Button btnpracticar=(Button) view.findViewById(R.id.btnPrac) ;
 
 
-        if(deslizar_nombres[position].length()>1 && deslizar_nombres[position]!="RR" && deslizar_nombres[position]!="LL"){
+        if(deslizar_nombres[position].length()>1 && deslizar_nombres[position]!="RR" && deslizar_nombres[position]!="LL" && deslizar_nombres[position]!="Ch"){
             btnpracticar.setVisibility(View.VISIBLE);
         }
 

@@ -120,7 +120,6 @@ public class deslizadorABCFragment extends Fragment {
 
 
 
-
         btnAdelante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

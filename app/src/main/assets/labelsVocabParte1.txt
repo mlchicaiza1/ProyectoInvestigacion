@@ -1,6 +1,7 @@
-color
-delante
+arriba
+encima
+familia
 fondos
 lunes
-noche
-rojo
+martes
+viernes

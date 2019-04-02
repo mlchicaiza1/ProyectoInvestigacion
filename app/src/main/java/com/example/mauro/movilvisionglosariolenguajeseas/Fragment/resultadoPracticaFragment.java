@@ -100,7 +100,7 @@ public class resultadoPracticaFragment extends Fragment {
 
             imgRespuesta.setImageResource(R.drawable.error);
 
-            txtRespuesta.setText(part1);
+            txtRespuesta.setText(part1+part3);
 
             int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
             imgRespuestaSena.setImageResource(resId1);

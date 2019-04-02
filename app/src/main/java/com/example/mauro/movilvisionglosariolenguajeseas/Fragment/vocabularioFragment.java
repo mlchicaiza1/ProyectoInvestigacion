@@ -2,6 +2,7 @@ package com.example.mauro.movilvisionglosariolenguajeseas.Fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -109,7 +110,7 @@ public class vocabularioFragment extends Fragment {
 
         recyclerView.setAdapter(vocabularioAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        //recyclerView.findViewHolderForAdapterPosition()
 
         txtBuscarPalabra=(EditText) vista.findViewById(R.id.txtFiltrado);
 
@@ -138,15 +139,19 @@ public class vocabularioFragment extends Fragment {
                 //Toast.makeText(getContext(),"Seleccion: "+itemsVocabulario.get(recyclerView.getChildAdapterPosition(view)).getPalabra(),Toast.LENGTH_SHORT).show();
 
                 //Toast.makeText(getContext(), "selec: "+vocabularioAdapter.getItem(recyclerView.getChildAdapterPosition(view)), Toast.LENGTH_SHORT).show();
-
                 interfaceComunicaFragment.enviarVocabulario(vocabularioAdapter.getItem(recyclerView.getChildAdapterPosition(view)));
                 //interfaceComunicaFragment.enviarVocabulario(itemsVocabulario.get(recyclerView.getChildAdapterPosition(view)));
                 InputMethodManager inputMethodManager =(InputMethodManager) vista.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 IBinder binder =vista.getWindowToken();
                 inputMethodManager.hideSoftInputFromWindow(binder,InputMethodManager.HIDE_NOT_ALWAYS);
 
-                onDestroy();
+                int d=recyclerView.getChildAdapterPosition(view);
+                Intent intent=new Intent(getContext(), fragment_videos.class);
+                Bundle bundle =new Bundle();
+                bundle.putInt("posReciclerView",d);
+                intent.putExtras(bundle);
 
+                onDestroy();
             }
         });
 

@@ -1,6 +1,8 @@
 package com.example.mauro.movilvisionglosariolenguajeseas.Adaptador;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,8 +14,10 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.fragment_videos;
 import com.example.mauro.movilvisionglosariolenguajeseas.R;
 import com.example.mauro.movilvisionglosariolenguajeseas.model.vocabularioClass;
+import com.example.mauro.movilvisionglosariolenguajeseas.view.ClassifierActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +73,8 @@ public class vocabularioAdapter extends RecyclerView.Adapter<vocabularioAdapter.
       }else {
           holder.btnPractica.setText("No");
       }
+
+
 
     }
 

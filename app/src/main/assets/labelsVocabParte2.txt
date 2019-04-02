@@ -1,7 +1,9 @@
 abajo
 arriba
-encima
-escuela
+color
+delante
 familia
 fondos
-limpio
+lunes
+noche
+rojo
