@@ -145,6 +145,7 @@ public class vocabularioFragment extends Fragment {
                 IBinder binder =vista.getWindowToken();
                 inputMethodManager.hideSoftInputFromWindow(binder,InputMethodManager.HIDE_NOT_ALWAYS);
 
+
                 int d=recyclerView.getChildAdapterPosition(view);
                 Intent intent=new Intent(getContext(), fragment_videos.class);
                 Bundle bundle =new Bundle();
