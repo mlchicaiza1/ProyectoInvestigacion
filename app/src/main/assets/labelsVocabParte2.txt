@@ -5,5 +5,5 @@ delante
 familia
 fondos
 lunes
-noche
-rojo
+martes
+pequeno

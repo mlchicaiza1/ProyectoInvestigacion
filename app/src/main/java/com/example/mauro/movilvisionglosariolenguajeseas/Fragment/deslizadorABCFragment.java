@@ -145,8 +145,6 @@ public class deslizadorABCFragment extends Fragment {
     }
 
 
-
-
     public void anadirIndicadorPnts(int position){
 
         puntos = new TextView[36];

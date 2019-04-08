@@ -77,11 +77,25 @@ public class resultadoPracticaFragment extends Fragment {
         }
     }
 
+    private static int contBien,contError=0;
+
+    public static String getPalabra() {
+        return palabra;
+    }
+
+    public static void setPalabra(String palabra) {
+        resultadoPracticaFragment.palabra = palabra;
+    }
+
+    private static String palabra;
+    private static String palabra1;
+    private static int cont=1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View vista =inflater.inflate(R.layout.fragment_resultado_practica, container, false);
 
+        palabra1=palabra;
         imgRespuesta=(ImageView) vista.findViewById(R.id.imageView2);
         txtRespuesta=(TextView) vista.findViewById(R.id.txtResp);
         btnVolverSen=(Button)  vista.findViewById(R.id.btnVolverSen);
@@ -93,28 +107,58 @@ public class resultadoPracticaFragment extends Fragment {
         String part1 = parts[0];
         String part2=parts[1];
         String part3=parts[2];
+        palabra=part1;
 
 
 
-        if(part2.equalsIgnoreCase("false") ){
+        if(palabra.equals(palabra1)){
+            if(part2.equalsIgnoreCase("false") ){
+                contError++;
+                imgRespuesta.setImageResource(R.drawable.error);
+                txtRespuesta.setText(part1 +" "+contError);
+                int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
+                imgRespuestaSena.setImageResource(resId1);
 
-            imgRespuesta.setImageResource(R.drawable.error);
-
-            txtRespuesta.setText(part1+part3);
-
-            int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
-            imgRespuestaSena.setImageResource(resId1);
 
 
+            }else {
+                contBien++;
+                imgRespuesta.setImageResource(R.drawable.like);
+                txtRespuesta.setText(part1 +" "+ contBien);
+
+                int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
+                imgRespuestaSena.setImageResource(resId1);
+
+            }
         }else {
-            imgRespuesta.setImageResource(R.drawable.like);
-            txtRespuesta.setText(part1);
-
-            int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
-            imgRespuestaSena.setImageResource(resId1);
-
-
+            contBien=0;
+            contError=0;
+            cont=1;
         }
+
+        if(cont==1){
+            if(part2.equalsIgnoreCase("false") ){
+                contError++;
+                imgRespuesta.setImageResource(R.drawable.error);
+                txtRespuesta.setText(part1 +" "+contError);
+                int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
+                imgRespuestaSena.setImageResource(resId1);
+                cont++;
+
+
+            }else {
+                contBien++;
+                imgRespuesta.setImageResource(R.drawable.like);
+                txtRespuesta.setText(part1 + " " + contBien);
+
+                int resId1 = getResources().getIdentifier(String.valueOf("@drawable/sena" + part1.toLowerCase()), "drawable", getContext().getPackageName());
+                imgRespuestaSena.setImageResource(resId1);
+                cont++;
+            }
+        }
+
+
+
 
         btnVolverSen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +179,7 @@ public class resultadoPracticaFragment extends Fragment {
                 if(part1.length()>3){
                     Bundle args = new Bundle();
                     // Colocamos el String
-                    args.putString("palabra", part1);
+                    args.putString("palabra", part1 +"-"+ contBien +"-"+contError);
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     fragment_videos videosfrag=new fragment_videos();
                     videosfrag.setArguments(args);

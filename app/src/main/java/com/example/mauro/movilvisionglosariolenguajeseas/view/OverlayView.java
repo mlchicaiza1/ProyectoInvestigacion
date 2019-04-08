@@ -82,13 +82,7 @@ public class OverlayView extends View {
                 String part1 = parts[0];
                 float con=results.get(i).getConfidence();
 
-                if (part1.equalsIgnoreCase(palabra) && con >0.28){
 
-                        for (int j=0; j<100; j++){
-                            imagen.draw(canvas);
-                        }
-
-                }
 
             }
 

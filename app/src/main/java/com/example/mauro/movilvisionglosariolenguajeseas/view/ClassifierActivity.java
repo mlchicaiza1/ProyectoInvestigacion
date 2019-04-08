@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.resultadoPracticaFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.vocabularioFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Main2Activity;
 import com.example.mauro.movilvisionglosariolenguajeseas.TensorFlowImageClassifier;
@@ -69,11 +70,15 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
 
     //Abecedario
-    private static final String MODEL_FILE2 = "file:///android_asset/graphAbcParte1.pb";
-    private static final String LABEL_FILE2 = "file:///android_asset/labelsAbcParte1.txt";
+    private static final String MODEL_FILEAbcParte1 = "file:///android_asset/graphAbcParte1.pb";
+    private static final String LABEL_FILEAbcParte1 = "file:///android_asset/labelsAbcParte1.txt";
 
-    private static final String MODEL_FILE3 = "file:///android_asset/graphAbcParte2.pb";
-    private static final String LABEL_FILE3 = "file:///android_asset/labelsAbcParte2.txt";
+    private static final String MODEL_FILEAbcParte2= "file:///android_asset/graphAbcParte2.pb";
+    private static final String LABEL_FILEAbcParte2 = "file:///android_asset/labelsAbcParte2.txt";
+
+    private static final String MODEL_FILEAbcParte3= "file:///android_asset/graphAbcParte3.pb";
+    private static final String LABEL_FILEAbcParte3 = "file:///android_asset/labelsAbcParte3.txt";
+
     //private static final String LABEL_FILE2 = "file:///android_asset/labels.txt";
     private static final boolean SAVE_PREVIEW_BITMAP = false;
 
@@ -149,12 +154,12 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
         previewHeight = size.getHeight();
 
 
-        String [] palabrasModel={"abajo",
+        String [] palabrasModelparte2={"abajo",
                 "color",
                 "delante",
                 "lunes",
-                "noche",
-                "rojo",
+                "pequeño",
+                "martes",
                 "fondos"
 
         };
@@ -165,14 +170,16 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                 "mama",
                 "niño",
                 "pararse",
-                "pequeño",
-                "fondos"
+                "fondos",
+                "viernes"
 
         };
 
         bundle=this.getIntent().getExtras();
         boolean encontrar=false;
         boolean encontrarParte3=false;
+
+
 
         //Reconocimiento Vocabulario
         if (bundle !=null && bundle.getString("dato").length()>3){
@@ -181,7 +188,8 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
             overlayView1.getResults(bundle.getString("dato"));
             palabra=bundle.getString("dato");
 
-            for (String elment:palabrasModel){
+
+            for (String elment:palabrasModelparte2){
                 if (elment.equalsIgnoreCase(palabra)){
                     encontrar=true;
                     break;
@@ -195,6 +203,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                 }
             }
             if (encontrar){
+                palabra=palabra.replace("ñ","n");
                 classifier = TensorFlowImageClassifier.create(
                         getAssets(),
                         MODEL_FILE1,
@@ -234,9 +243,18 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
 
 
-        String [] abc={"aa","bb","cc","dd","ff","gg","vv","yy","fondos"};
+        String [] abcparte1={"bb","cc","ff","gg","yy","fondos"};
 
-        boolean encontrarAbc=false;        //Reconocimiento Abecedario
+        String [] abcpart2={"aa","hh","ll","kk","ww","ee","fondos"};
+
+        String [] abcpart3={"ch","mm","uu","vv","xx","fondos"};
+
+
+        boolean encontrarAbcparte1=false;        //Reconocimiento Abecedario
+        boolean encontrarAbcparte2=false;        //Reconocimiento Abecedario
+
+        boolean encontrarAbcparte3=false;        //Reconocimiento Abecedario
+
         if (bundle !=null && bundle.getString("dato").length()<3){
             //overlayView.getResults(bundle.getString("dato"));
             posicion=bundle.getInt("datoPos");
@@ -244,39 +262,64 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
             overlayView1.getResults(bundle.getString("dato"));
             palabra=bundle.getString("dato");
 
-            for (String elment:abc) {
+
+            for (String elment:abcparte1) {
                 if (elment.equalsIgnoreCase(palabra)) {
-                    encontrarAbc = true;
+                    encontrarAbcparte1 = true;
                     break;
                 }
             }
 
-                if (encontrarAbc){
-
-                    classifier = TensorFlowImageClassifier.create(
-                            getAssets(),
-                            MODEL_FILE2,
-                            LABEL_FILE2,
-                            INPUT_SIZE,
-                            IMAGE_MEAN,
-                            IMAGE_STD,
-                            INPUT_NAME,
-                            OUTPUT_NAME);
-                }else{
-
-                    classifier = TensorFlowImageClassifier.create(
-                            getAssets(),
-                            MODEL_FILE3,
-                            LABEL_FILE3,
-                            INPUT_SIZE,
-                            IMAGE_MEAN,
-                            IMAGE_STD,
-                            INPUT_NAME,
-                            OUTPUT_NAME);
-
+            for (String elment:abcpart2) {
+                if (elment.equalsIgnoreCase(palabra)) {
+                    encontrarAbcparte2 = true;
+                    break;
                 }
+            }
 
+            for (String elment:abcpart3) {
+                if (elment.equalsIgnoreCase(palabra)) {
+                    encontrarAbcparte3= true;
+                    break;
+                }
+            }
 
+            if (encontrarAbcparte1){
+                classifier = TensorFlowImageClassifier.create(
+                        getAssets(),
+                        MODEL_FILEAbcParte1,
+                        LABEL_FILEAbcParte1,
+                        INPUT_SIZE,
+                        IMAGE_MEAN,
+                        IMAGE_STD,
+                        INPUT_NAME,
+                        OUTPUT_NAME);
+            }
+            if (encontrarAbcparte2){
+                classifier = TensorFlowImageClassifier.create(
+                        getAssets(),
+                        MODEL_FILEAbcParte2,
+                        LABEL_FILEAbcParte2,
+                        INPUT_SIZE,
+                        IMAGE_MEAN,
+                        IMAGE_STD,
+                        INPUT_NAME,
+                        OUTPUT_NAME);
+
+            }
+
+            if (encontrarAbcparte3){
+
+                classifier = TensorFlowImageClassifier.create(
+                        getAssets(),
+                        MODEL_FILEAbcParte3,
+                        LABEL_FILEAbcParte3,
+                        INPUT_SIZE,
+                        IMAGE_MEAN,
+                        IMAGE_STD,
+                        INPUT_NAME,
+                        OUTPUT_NAME);
+            }
 
 
         }
@@ -430,7 +473,11 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                                     float con=results.get(i).getConfidence();
 
                                     if (Integer.parseInt(valor)< 1 ){
-                                       palabra=palabra.replace("n","ñ");
+                                       if(palabra.equalsIgnoreCase("pequeno") || palabra.equalsIgnoreCase("nino")){
+                                           palabra=palabra.replace("n","ñ");
+
+                                       }
+
                                         bundle.putString("textFromActivityA",palabra+"_"+"false"+"_" +con);
                                         if (posicion != 35){
                                             bundle.putInt("datoPos",posicion);
@@ -446,9 +493,24 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
 
                                     }else {
-                                        if(palabraRecog.equalsIgnoreCase(palabra) && con >0.222){
+                                        if(palabraRecog.equalsIgnoreCase(palabra) && con >0.196){
+                                            if(palabra.equalsIgnoreCase("pequeno") || palabra.equalsIgnoreCase("nino")){
+                                                palabra=palabra.replace("n","ñ");
 
-                                            palabra=palabra.replace("n","ñ");
+                                            }
+
+
+                                            if(palabraRecog.equalsIgnoreCase("ff") && con >0.11){
+                                                bundle.putString("textFromActivityA",palabra+"_"+"true"+"_" +con);
+                                                if (posicion != 35){
+                                                    bundle.putInt("datoPos",posicion);
+                                                }
+
+                                                intent.putExtras(bundle);
+
+                                                startActivity(intent);
+                                            }
+
                                             bundle.putString("textFromActivityA",palabra+"_"+"true"+"_" +con);
                                             if (posicion != 35){
                                                 bundle.putInt("datoPos",posicion);
@@ -462,8 +524,20 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
                                             //if (Integer.parseInt(valor)<28){
 
-                                                if (con > 0.62){
-                                                    bundle.putString("textFromActivityA",palabraRecog+"_"+"false"+"_" +con);
+                                                if (palabraRecog.equalsIgnoreCase("pararse") && con >0.789){
+                                                    bundle.putString("textFromActivityA",palabra+"_"+"false"+"_" +con);
+
+                                                    if (posicion != 35){
+                                                        bundle.putInt("datoPos",posicion);
+                                                    }
+                                                    intent.putExtras(bundle);
+                                                    startActivity(intent);
+                                                }
+
+                                                if (con > 0.68){
+
+
+                                                    bundle.putString("textFromActivityA",palabra+"_"+"false"+"_" +con);
 
                                                     if (posicion != 35){
                                                         bundle.putInt("datoPos",posicion);

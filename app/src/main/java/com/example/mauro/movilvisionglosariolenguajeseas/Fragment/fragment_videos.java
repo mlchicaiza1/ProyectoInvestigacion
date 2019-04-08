@@ -62,7 +62,7 @@ public class fragment_videos extends Fragment {
 
     ImageButton btnPractica,btnAyuda,btnInicio,btnVolver;
     VideoView vdVideoPractica;
-    TextView txtpalabraSen;
+    TextView txtpalabraSen,txtContadorRes;
     GifImageView gifImagen1;
     ImageView imgPalabraSena,imgSena;
     AdminSQLiteOpenHelper conn;
@@ -110,6 +110,7 @@ public class fragment_videos extends Fragment {
         gifImagen1 = (GifImageView)vista.findViewById(R.id.gifImagen);
         imgPalabraSena = (ImageView)vista.findViewById(R.id.imgPalabrasena);
         imgSena = (ImageView)vista.findViewById(R.id.imgSena);
+        txtContadorRes=(TextView) vista.findViewById(R.id.txtContador);
 
         Bundle objetoVocabulario=getArguments();
         vocabularioClass vocabulario=null;
@@ -142,16 +143,24 @@ public class fragment_videos extends Fragment {
 
 
         if (texto != null){
-            txtpalabraSen.setText(texto);
+
             //String uri1 = "@drawable/"+texto+"fondo";
-            texto=texto.replace("ñ","n");
-            int resId1 = getResources().getIdentifier(String.valueOf("@drawable/"+texto.toLowerCase()+"fondo"), "drawable", getContext().getPackageName());
+            String[] parts = texto.split("-");
+            String part1 = parts[0];
+            String part2=parts[1];
+            String part3=parts[2];
+            txtpalabraSen.setText(part1);
+            txtContadorRes.setText("  Bien: "+part2 +"  Error: " +part3);
+            Toast.makeText(getContext(),"Seleccion: "+ part1,Toast.LENGTH_SHORT).show();
+
+            part1=part1.replace("ñ","n");
+            int resId1 = getResources().getIdentifier(String.valueOf("@drawable/"+part1.toLowerCase()+"fondo"), "drawable", getContext().getPackageName());
             imgPalabraSena.setImageResource(resId1);
 
-            int resId2 = getResources().getIdentifier(String.valueOf("@drawable/sena"+texto.toLowerCase()), "drawable", getContext().getPackageName());
+            int resId2 = getResources().getIdentifier(String.valueOf("@drawable/sena"+part1.toLowerCase()), "drawable", getContext().getPackageName());
             imgSena.setImageResource(resId2);
 
-            int resId3 = getResources().getIdentifier(String.valueOf("@drawable/gif"+texto.toLowerCase()), "drawable", getContext().getPackageName());
+            int resId3 = getResources().getIdentifier(String.valueOf("@drawable/gif"+part1.toLowerCase()), "drawable", getContext().getPackageName());
             gifImagen1.setImageResource(resId3);
 
 
