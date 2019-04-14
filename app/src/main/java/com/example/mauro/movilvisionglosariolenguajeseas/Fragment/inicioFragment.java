@@ -94,6 +94,14 @@ public class inicioFragment extends Fragment {
                 transaction.replace(R.id.content_main,abcFrag).addToBackStack(null).commit();
             }
         });
+        imbtnAyuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ayudaFragment ayudaFrag=new ayudaFragment();
+                android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.content_main,ayudaFrag).addToBackStack(null).commit();
+            }
+        });
         imbtnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

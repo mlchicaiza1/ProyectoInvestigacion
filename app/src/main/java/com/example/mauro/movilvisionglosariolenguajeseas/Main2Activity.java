@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.ayudaFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.deslizadorABCFragment;
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.fragment_videos;
 import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.inicioFragment;
@@ -27,7 +28,7 @@ import com.example.mauro.movilvisionglosariolenguajeseas.Fragment.resultadoPract
 
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        vocabularioFragment.OnFragmentInteractionListener,deslizadorABCFragment.OnFragmentInteractionListener,
+        vocabularioFragment.OnFragmentInteractionListener,deslizadorABCFragment.OnFragmentInteractionListener, ayudaFragment.OnFragmentInteractionListener,
         fragment_videos.OnFragmentInteractionListener,resultadoPracticaFragment.OnFragmentInteractionListener, inicioFragment.OnFragmentInteractionListener, IComunicaFragment {
 
     Fragment fragment1 = null;
@@ -137,7 +138,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                 fragmentSelect = true;
                 break;
             case R.id.nav_Ayuda:
-
+                fragment = new ayudaFragment();
+                fragmentSelect = true;
                 break;
         }
 

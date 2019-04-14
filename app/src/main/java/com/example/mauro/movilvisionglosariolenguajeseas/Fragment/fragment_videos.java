@@ -150,7 +150,9 @@ public class fragment_videos extends Fragment {
             String part2=parts[1];
             String part3=parts[2];
             txtpalabraSen.setText(part1);
-            txtContadorRes.setText("  Bien: "+part2 +"  Error: " +part3);
+            int res;
+            res=((Integer.parseInt(part2) +Integer.parseInt(part3))/2)*100;
+            txtContadorRes.setText("  Bien: "+part2 +"  Error: " +part3 +"   "+res);
             Toast.makeText(getContext(),"Seleccion: "+ part1,Toast.LENGTH_SHORT).show();
 
             part1=part1.replace("ñ","n");

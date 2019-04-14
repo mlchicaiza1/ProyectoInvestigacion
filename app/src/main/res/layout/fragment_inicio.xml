@@ -11,35 +11,39 @@
 
         <ImageButton
             android:id="@+id/imbtnInicio"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/imbtnAbc"
-            android:layout_marginStart="18dp"
+            style="@android:style/Widget.DeviceDefault.ImageButton"
+            android:layout_width="230dp"
+            android:layout_height="150dp"
+            android:layout_alignStart="@+id/imbtnAbc"
+            android:layout_below="@+id/imbtnAbc"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/boton_redondo"
             android:scaleType="centerCrop"
-            android:src="@drawable/play"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="134dp" />
+            android:src="@drawable/vocabulario1"
+            tools:layout_editor_absoluteX="167dp"
+            tools:layout_editor_absoluteY="89dp" />
 
         <ImageButton
             android:id="@+id/imbtnAbc"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="230dp"
+            android:layout_height="150dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="103dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/boton_redondo"
             android:scaleType="centerCrop"
-            android:src="@drawable/abcd"
+            android:src="@drawable/abecedario"
             tools:layout_editor_absoluteX="167dp"
             tools:layout_editor_absoluteY="89dp" />
 
         <ImageButton
             android:id="@+id/imbtnAyuda"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/imbtnAbc"
-            android:layout_marginEnd="19dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignStart="@+id/imbtnInicio"
+            android:layout_below="@+id/imbtnInicio"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_follow"
             android:scaleType="centerCrop"
             android:src="@drawable/ayuda" />
 
@@ -47,9 +51,11 @@
             android:id="@+id/imbtnSalir"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_below="@+id/imbtnAbc"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="66dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="26dp"
+            android:layout_marginEnd="13dp"
+            android:background="@drawable/btn_follow"
             android:scaleType="centerCrop"
             android:src="@drawable/exit" />
     </RelativeLayout>

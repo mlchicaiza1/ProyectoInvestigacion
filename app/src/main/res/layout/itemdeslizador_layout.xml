@@ -14,11 +14,10 @@
 
         <ImageView
             android:id="@+id/deslizarImagen"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="350dp"
+            android:layout_height="325dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="22dp"
             app:srcCompat="@drawable/sena_a"
             tools:ignore="MissingConstraints" />
 
@@ -31,7 +30,7 @@
             android:padding="30dp"
             android:text="A"
             android:textColor="@android:color/holo_orange_dark"
-            android:textSize="56sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints,UnknownId" />
 
