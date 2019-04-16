@@ -46,7 +46,7 @@ public class deslizadorAdapterAyuda extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
 
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.itemdeslizador_layout, container, false);
+        View view = layoutInflater.inflate(R.layout.itemayuda, container, false);
 
         ImageView deslizarImagen = (ImageView) view.findViewById(R.id.deslizarImagen);
         TextView txtLetra = (TextView) view.findViewById(R.id.txtletra);
