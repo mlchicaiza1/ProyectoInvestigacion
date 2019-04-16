@@ -13,9 +13,9 @@
         <ImageButton
             android:id="@+id/imbtnInicio"
             style="@android:style/Widget.DeviceDefault.ImageButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_alignEnd="@+id/imbtnSalir"
+            android:layout_alignStart="@+id/imbtnAbc"
             android:layout_below="@+id/imbtnAbc"
             android:background="@drawable/boton_redondo"
             android:scaleType="centerCrop"
@@ -25,11 +25,11 @@
 
         <ImageButton
             android:id="@+id/imbtnAbc"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_alignEnd="@+id/imbtnSalir"
             android:layout_below="@+id/imbtnAyuda"
             android:layout_marginTop="14dp"
+            android:layout_toEndOf="@+id/imbtnAyuda"
             android:background="@drawable/boton_redondo"
             android:scaleType="centerCrop"
             android:src="@drawable/animacionabc"
