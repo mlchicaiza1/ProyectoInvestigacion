@@ -99,15 +99,14 @@ public class ayudaFragment extends Fragment {
         vpDeslizar.addOnPageChangeListener(viewListener);
 
         try {
-            String texto=getArguments().getString("palabra");
-            posicion=getArguments().getInt("datosPos");
+
+            posicion=getArguments().getInt("datosPosicionAyuda");
 
             if (posicion!=30){
                 vpDeslizar.setCurrentItem(posicion);
             }
 
-
-            Toast.makeText(getContext(),"Seleccion: "+texto+posicion,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"Seleccion: "+posicion,Toast.LENGTH_SHORT).show();
         }catch (Exception e){
 
         }

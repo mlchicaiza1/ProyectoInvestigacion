@@ -109,7 +109,10 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.menuAyuda) {
+            ayudaFragment ayudaFrag=new ayudaFragment();
+            getSupportFragmentManager().beginTransaction().
+                    replace(R.id.content_main,ayudaFrag).addToBackStack(null).commit();
             return true;
         }
 

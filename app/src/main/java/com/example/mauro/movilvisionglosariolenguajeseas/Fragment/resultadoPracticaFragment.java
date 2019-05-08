@@ -157,9 +157,6 @@ public class resultadoPracticaFragment extends Fragment {
             }
         }
 
-
-
-
         btnVolverSen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

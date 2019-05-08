@@ -215,9 +215,14 @@ public class fragment_videos extends Fragment {
         btnAyuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                // Colocamos el String
+                args.putInt("datosPosicionAyuda",3);
                 ayudaFragment ayudaFrag=new ayudaFragment();
+                ayudaFrag.setArguments(args);
                 android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.content_main,ayudaFrag).addToBackStack(null).commit();
+
             }
         });
         return vista;

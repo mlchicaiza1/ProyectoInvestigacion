@@ -112,7 +112,6 @@ public class deslizadorABCFragment extends Fragment {
                 vpDeslizar.setCurrentItem(posicion);
             }
 
-
             Toast.makeText(getContext(),"Seleccion: "+texto+posicion,Toast.LENGTH_SHORT).show();
         }catch (Exception e){
 
