@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MovilVisionGlosarioLenguajeSeñas</string>
-    <string name="app_name1">Glosario Señas EC</string>
-    <string name="title_activity_main2">Glosario de Señas EC</string>
+    <string name="app_name1">En Señas</string>
+    <string name="title_activity_main2">En Señas</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

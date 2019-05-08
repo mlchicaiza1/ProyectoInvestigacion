@@ -6,4 +6,4 @@ familia
 fondos
 lunes
 martes
-pequeno
+poco

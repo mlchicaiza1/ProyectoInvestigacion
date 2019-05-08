@@ -211,6 +211,15 @@ public class fragment_videos extends Fragment {
             }
 
         });
+
+        btnAyuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ayudaFragment ayudaFrag=new ayudaFragment();
+                android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.content_main,ayudaFrag).addToBackStack(null).commit();
+            }
+        });
         return vista;
 
     }
