@@ -28,9 +28,9 @@ public class deslizadorAdapterAyuda extends PagerAdapter {
     }
 
     //Array
-    public int[] deslizar_imagen = {R.drawable.ayuda,R.drawable.ayudainicio, R.drawable.ayudalistadovoc,R.drawable.ayudamultimedia,R.drawable.distancia,R.drawable.ayudarecon,R.drawable.fallasrecon};
+    public int[] deslizar_imagen = {R.drawable.ayuda,R.drawable.ayudainicio, R.drawable.ayudalistadovoc,R.drawable.ayudamultimedia,R.drawable.distancia,R.drawable.ayudarecon,R.drawable.fallasrecon, R.drawable.ayudamultimedia1, R.drawable.ayudaabc};
 
-    public String[] deslizar_nombres = {"Ayuda Usuario","Pantalla de Inicio","Vocabulario","Contenido Multimedia","Distancia","Forma correcta ", "Formas incorrectas"};
+    public String[] deslizar_nombres = {"Ayuda Usuario","Pantalla de Inicio","Vocabulario","Contenido Multimedia","Importante para el reconocimiento Distancia","Forma correcta ", "Formas incorrectas", "Botones Multimedia", "Abecedario"};
 
     @Override
     public int getCount() {
